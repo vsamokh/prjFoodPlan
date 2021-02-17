@@ -154,22 +154,22 @@ def BnB (a, b, c, x, mnres, mnx):
                         
                         a1 = np.zeros((a.shape[1]))
                         a1[i] = 1
-                        print(a)
-                        print(a1)
+                        #print(a)
+                        #print(a1)
                         a1 = np.insert(a, 0, a1, axis = 0)
-                        print(a1)
+                        #print(a1)
                         a2 = np.zeros((a.shape[1]))
                         a2[i] = -1
                         a2 = np.insert(a, 0, a2, axis = 0)
 
                         b1 = np.insert(b, 0, x1)
-                        print(b)
-                        print(b1)
+                        #print(b)
+                        #print(b1)
                         b2 = np.insert(b, 0, x2)
-                        print(b2)
+                        #print(b2)
                         #break 
                         res1 = linprog(c, a1, b1)
-                        print(res1)
+                        #print(res1)
                         break
                         if res1.success:
                                 if res1.fun <= mnres :
