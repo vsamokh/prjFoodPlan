@@ -142,7 +142,8 @@ def Portions(person):
 			a[26][i] = person.WeekDishList[day].dish.iron  *(-1)
 			a[27][i] = person.WeekDishList[day].dish.magnesium  *(-1)
 			a[28][i] = person.WeekDishList[day].dish.zinc  *(-1)
-		res[day] = linprog(c, a, b).X
+		simplex = linprog(c, a, b)
+		res[day] = BnB(a, b, c, simplex.x, simplex.fun, simplex.x)
 	return res
 
 def BnB (a, b, c, x, mnres, mnx):
@@ -153,35 +154,37 @@ def BnB (a, b, c, x, mnres, mnx):
                         
                         a1 = np.zeros((a.shape[1]))
                         a1[i] = 1
-                        #print(a)
-                        #print(a1)
+                        print(a)
+                        print(a1)
                         a1 = np.insert(a, 0, a1, axis = 0)
-                        #print(a1)
+                        print(a1)
                         a2 = np.zeros((a.shape[1]))
                         a2[i] = -1
                         a2 = np.insert(a, 0, a2, axis = 0)
 
                         b1 = np.insert(b, 0, x1)
-                        #print(b)
-                        #print(b1)
+                        print(b)
+                        print(b1)
                         b2 = np.insert(b, 0, x2)
-
-                        if x1 != 0 :
-                                res1 = linprog(c, a1, b1)
-                                if res1.success:
-                                        if res1.fun <= mnres :
-                                                mnres = res1.fun
-                                                mnx = res1.x
-                                        resx = BnB(a1, b1, c, res1.x, mnres, mnx)
+                        print(b2)
+                        #break 
+                        res1 = linprog(c, a1, b1)
+                        print(res1)
+                        break
+                        if res1.success:
+                                if res1.fun <= mnres :
+                                        mnres = res1.fun
+                                        mnx = res1.x
+                                mnx = BnB(a1, b1, c, res1.x, mnres, mnx)
 
                         res2 = linprog(c, a2, b2)
                         if res2.success:
                                 if res2.fun <= mnres :
                                                 mnres = res2.fun
                                                 mnx = res2.x
-                                resx = BnB(a2, b2, c, res2.x, mnres, mnx)
+                                mnx = BnB(a2, b2, c, res2.x, mnres, mnx)
 
-        return resx
+        return mnx
 
 
 a = np.array([[1,2],[-3,-4],[-5,-6]])
