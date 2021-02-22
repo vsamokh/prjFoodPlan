@@ -18,12 +18,12 @@ def getMealName(conn, meal_id):
     cur.execute(f"SELECT Название_блюда FROM 'Блюда' WHERE Код_блюда = {meal_id}")
     return cur.fetchone()[0]
 
-
+"""
 def getMealEntry(conn, table_name, table_field, meal_id):
     cur = conn.cursor()
     cur.execute(f"SELECT {table_field} FROM '{table_name}' WHERE Код_блюда = {meal_id}")
     return cur.fetchone()[0]
-
+"""
 
 def getMealEntryUnknown(conn, table_field, meal_id):
     cur = conn.cursor()
