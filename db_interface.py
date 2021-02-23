@@ -21,7 +21,7 @@ def getMealName(conn, meal_id):
     # Создание курсора
     cur = conn.cursor()
     # Исполнение запроса
-    cur.execute(f"SELECT Название_блюда FROM 'Блюда' WHERE Код_блюда = {meal_id}")
+    cur.execute(f"SELECT Название_блюда__uk_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
     # функция возвращает 0-й элемент списка (список элементов рядка запроса)
     return cur.fetchone()[0]
 
