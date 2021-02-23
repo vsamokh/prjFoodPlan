@@ -135,7 +135,7 @@ def Snack(conn):
         return [Dish(conn, randomMealID(conn, "Перекусы"))]
 """
 
-conn = connect_db("database12.db")
+conn = connect_db("databaseV2.db")
 
 """print(getMealName(conn, 98))
 print(getMealEntryUnknown(conn, "Калории__ккал_", 10))
