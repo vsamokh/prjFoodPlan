@@ -1,7 +1,7 @@
 import numpy as np
 import scipy
 import math
-import db_connect
+import db_interface
 from scipy.optimize import linprog
 
 class Person:
