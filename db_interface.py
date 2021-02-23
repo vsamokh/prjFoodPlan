@@ -2,31 +2,39 @@ import sqlite3
 from sqlite3 import Error
 import random
 
+# Функция для подключения базы данных
 def connect_db(file_name):
     conn = None
-
     try:
         conn = sqlite3.connect(file_name)
+    # Провера наличия ошибкок при подключении базы данных
     except Error as e:
         print(e)
-
     return conn
 
+# Функция для закрытия соединения с базой данных
+def close_db(conn):
+    conn.close()
 
+# Функция, возвращающая название блюда
 def getMealName(conn, meal_id):
+    # Создание курсора
     cur = conn.cursor()
+    # Исполнение запроса
     cur.execute(f"SELECT Название_блюда FROM 'Блюда' WHERE Код_блюда = {meal_id}")
+    # функция возвращает 0-й элемент списка (список элементов рядка запроса)
     return cur.fetchone()[0]
 
-"""
-def getMealEntry(conn, table_name, table_field, meal_id):
+
+"""def getMealEntry(conn, table_name, table_field, meal_id):
     cur = conn.cursor()
     cur.execute(f"SELECT {table_field} FROM '{table_name}' WHERE Код_блюда = {meal_id}")
-    return cur.fetchone()[0]
-"""
+    return cur.fetchone()[0]"""
 
+# Функция, возвращающая запись количества нутриентов блюда
 def getMealEntryUnknown(conn, table_field, meal_id):
     cur = conn.cursor()
+    # Запрос поиска записи в заданном поле таблицы, заданного по идентификатору блюда рядка
     cur.execute(f"""SELECT {table_field} FROM 'Гарниры' where Код_блюда == {meal_id}
                     UNION
                     SELECT {table_field} FROM 'Завтрак'  where Код_блюда == {meal_id}
@@ -43,13 +51,14 @@ def getMealEntryUnknown(conn, table_field, meal_id):
                 """)
     return cur.fetchone()[0]
 
-
+# Функция, возвращающая идентификатор случайного блюда
 def randomMealID(conn, table_name):
     cur = conn.cursor()
+    # запрос выбирает 1-й элемент случайно отсортированной таблицы
     cur.execute(f"SELECT Код_блюда FROM '{table_name}' ORDER BY RANDOM() LIMIT 1;")
     return cur.fetchone()[0]
 
-
+# Класс, в котором хранятся название блюда и характеристики его нутриентов
 class Dish:
     def __init__(self, conn, meal_id):
         self.name = getMealName(conn, meal_id)
@@ -76,17 +85,20 @@ class Dish:
         self.magnesium = getMealEntryUnknown(conn, "Магний__мг_", meal_id)
         self.zinc = getMealEntryUnknown(conn, "Цинк_мг_", meal_id)
 
-
+# Функция, возвращающая список классов Dish для завтрака
 def Breakfast(conn):
     return [Dish(conn, randomMealID(conn, "Завтрак"))]
 
+# Функция, возвращающая список классов Dish для обеда
 def Lunch(conn):
+    # Вариант компоновки блюд определяется случайно
     if random.choice([True, False]):
         return [Dish(conn, randomMealID(conn, "Первое")), Dish(conn, randomMealID(conn, "Основное"))]
     else:
         return [Dish(conn, randomMealID(conn, "Первое")), Dish(conn, randomMealID(conn, "Гарниры")),
                     Dish(conn, randomMealID(conn, "Мясо-рыба")), Dish(conn, randomMealID(conn, "Салат"))]
 
+# Функция, возвращающая список классов Dish для ужина
 def Dinner(conn):
     if random.choice([True, False]):
         return [Dish(conn, randomMealID(conn, "Основное"))]
@@ -94,6 +106,7 @@ def Dinner(conn):
         return [Dish(conn, randomMealID(conn, "Гарниры")),
                     Dish(conn, randomMealID(conn, "Мясо-рыба")), Dish(conn, randomMealID(conn, "Салат"))]
 
+# Функция, возвращающая список классов Dish для перекуса
 def Snack(conn):
     return [Dish(conn, randomMealID(conn, "Перекусы"))]
 
@@ -129,5 +142,6 @@ print(getMealEntryUnknown(conn, "Калории__ккал_", 10))
 
 a1 = Dish(conn, 10)
 print(a1.name, a1.calories)"""
+print(Breakfast(conn)[0].name)
 
-conn.close()
+close_db(conn)
