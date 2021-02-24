@@ -122,9 +122,8 @@ def Portions(person):
 			a[0][i] = person.WeekDishList[day][0][i].calories
 			a[1][i] = person.WeekDishList[day][0][i].calories * (-1)
 		for i in range(len(person.WeekDishList[day][1])):
-			print(person.WeekDishList[day][1][i].calories)
 			a[2][i + len(person.WeekDishList[day][0])] = person.WeekDishList[day][1][i].calories
-			a[3][i + len(person.WeekDishList[day][0])] = person.WeekDishList[day][1][i].calories * (-1)
+			a[3][i + len(person.WeekDishList[day][0])] = float(person.WeekDishList[day][1][i].calories) * (-1)
 		for i in range(len(person.WeekDishList[day][2])):
 			a[4][i + len(person.WeekDishList[day][1])] = person.WeekDishList[day][2][i].calories
 			a[5][i + len(person.WeekDishList[day][1])] = person.WeekDishList[day][2][i].calories * (-1)
@@ -215,7 +214,7 @@ X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
 """
 
-conn = db.connect_db("databaseV2.db")
+conn = db.connect_db("databaseV2.2.db")
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
