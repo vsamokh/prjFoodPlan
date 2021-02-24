@@ -18,10 +18,14 @@ def close_db(conn):
 
 # Функция, возвращающая название блюда
 def getMealName(conn, meal_id):
+    # Получение доступа к переменной, определяющей язык (lang = uk/ru/en)
+    global lang
     # Создание курсора
     cur = conn.cursor()
     # Исполнение запроса
-    cur.execute(f"SELECT Название_блюда__uk_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
+    if lang == "uk": cur.execute(f"SELECT Название_блюда__uk_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
+    elif lang == "ru": cur.execute(f"SELECT Название_блюда_ru_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
+    else: cur.execute(f"SELECT Название_блюда__en_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
     # функция возвращает 0-й элемент списка (список элементов рядка запроса)
     return cur.fetchone()[0]
 
@@ -135,13 +139,15 @@ def Snack(conn):
         return [Dish(conn, randomMealID(conn, "Перекусы"))]
 """
 
-conn = connect_db("databaseV2.db")
+conn = connect_db("databaseV2.1.db")
 
 """print(getMealName(conn, 98))
 print(getMealEntryUnknown(conn, "Калории__ккал_", 10))
 
 a1 = Dish(conn, 10)
 print(a1.name, a1.calories)"""
+lang = "en" 
+
 print(Breakfast(conn)[0].name)
 
 close_db(conn)
