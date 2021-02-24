@@ -67,48 +67,6 @@ class Person:
 		self.portions = Portions(self)
 		print(self.portions)
 
-"""
-class Dish:
-	def __init__(self, name, calories, fat, proteins, carbohydrates, sugar, cholesterol, alcohol, caffeine, sodium, cellulose, A, B1, B6, B12, C, D, E, K, calcium, iron, magnesium, zinc):
-		self.name = name
-		self.calories = calories
-		self.fat = fat
-		self.proteins = proteins
-		self.carbohydrates = carbohydrates
-		self.sugar = sugar
-		self.cholesterol = cholesterol
-		self.alcohol = alcohol
-		self.caffeine = caffeine
-		self.sodium = sodium
-		self.cellulose = cellulose
-		self.A = A
-		self.B1 = B1
-		self.B6 = B6
-		self.B12 = B12
-		self.C = C
-		self.D = D
-		self.E = E
-		self.K = K
-		self.calcium = calcium
-		self.iron = iron
-		self.magnesium = magnesium
-		self.zinc = zinc
-
-
-class DishList:
-	def __init__(self):
-			... #рандомная генерация списков блюд на завтрак обед ужин и перекусы 
-
-	def Breakfast(self):
-			... #рандомная генерация завтрака
-
-	def Lunch(self):
-			... #рандомная генерация обеда
-
-	def Dinner(self):
-			... #рандомная генерация ужина
-"""
-
 #функция просчета кол-ва порций для человека
 def Portions(person):
 	res = [[]]*7
@@ -232,6 +190,6 @@ for day in range(7):
 
 days = np.zeros((7,3))
 
-test = Person("Test", "Male", 66, 166, 66, 1.6)
+test = Person("Testovenko Test Testovich", "Male", 66, 166, 66, 1.6)
 
 test.WeekPlan(days, List)
