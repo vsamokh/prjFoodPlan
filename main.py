@@ -94,7 +94,6 @@ def Portions(person):
 			a[7][i + len(person.WeekDishList[day][2])] = person.WeekDishList[day][3][i].calories * (-1)
 
 		dishes = sum(person.WeekDishList[day], [])
-
 		for i in range(len(dishes)):
 			a[8][i] = dishes[i].fat*(-1)
 			a[9][i] = dishes[i].fat
@@ -105,6 +104,11 @@ def Portions(person):
 			a[14][i] = dishes[i].cholesterol
 			a[15][i] = dishes[i].sodium 
 			a[16][i] = dishes[i].cellulose 
+		for i in range(len(dishes)):
+			a1 = np.zeros((a.shape[1]))
+			a1[i] = -1
+			a = np.insert(a, 0, a1, axis = 0)
+			b = np.insert(b, 0, 0)
 			"""
 			a[11][i] = dishes[i].sugar * (-1)
 			a[13][i] = dishes[i].alcohol  
@@ -121,6 +125,7 @@ def Portions(person):
 			a[26][i] = dishes[i].iron * (-1)
 			a[27][i] = dishes[i].magnesium * (-1)
 			a[28][i] = dishes[i].zinc * (-1)
+		print(a,b)
 			"""
 		#вычисление дробного кол-ва блюд, через библеотеку scipy
 		simplex = linprog(c, a, b, method='simplex')
@@ -152,7 +157,7 @@ def BnB (a, b, c, x, mnres, mnx):
 					#решаем задачу с новыми ограничениями 
 					res1 = linprog(c, a1, b1, method='simplex')
 					#если получилось решить задачу, запоминаем минимальное знач. функции и х, после чего выволняем метод для полученого решения
-					if res1.success and x[i] != res1.x[i]:
+					if res1.success and x[i] != res1.x[i] and x1 != 0:
 							if res1.fun <= mnres or (res1.fun == math.floor(res1.fun) and mnres == math.floor(mnres)):
 								mnres = res1.fun
 								mnx = res1.x
@@ -183,7 +188,7 @@ X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
 """
 
-conn = db.connect_db("databaseV2.3.db")
+conn = db.connect_db("databaseV2.3.access")
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
