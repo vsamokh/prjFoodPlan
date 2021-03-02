@@ -55,16 +55,66 @@ def getMealEntryUnknown(conn, table_field, meal_id):
                 """)
     return cur.fetchone()[0]
 
+
+
+def getMealRow(conn, meal_id):
+    cur = conn.cursor()
+    cur.execute(f"""SELECT * FROM 'Гарниры' where Код_блюда == {meal_id}
+                    UNION
+                    SELECT * FROM 'Завтрак'  where Код_блюда == {meal_id}
+                    UNION
+                    SELECT * FROM 'Мясо-рыба' where Код_блюда == {meal_id}
+                    UNION
+                    SELECT * FROM 'Основное' where Код_блюда == {meal_id}
+                    UNION
+                    SELECT * FROM 'Первое' where Код_блюда == {meal_id}
+                    UNION
+                    SELECT * FROM 'Перекусы' where Код_блюда == {meal_id}
+                    UNION
+                    SELECT * FROM 'Салат' where Код_блюда == {meal_id}
+                """)
+    return cur.fetchone()
+
+
+def getMealId(conn, name_en):
+    cur = conn.cursor()
+    cur.execute(f"SELECT Код_блюда FROM 'Блюда' WHERE Название_блюда__en_ = '{name_en}'")
+    return cur.fetchone()[0]
+
 # Функция, возвращающая идентификатор случайного блюда
 def randomMealID(conn, table_name):
     cur = conn.cursor()
-    # запрос выбирает 1-й элемент случайно отсортированной таблицы
-    cur.execute(f"SELECT Код_блюда FROM '{table_name}' ORDER BY RANDOM() LIMIT 1;")
+    # получение доступа к списку индексов аллергенов
+    global allergyid_list
+    # удаление из списка 8-го варианта (аллергенов нет)
+    try:
+        allergyid_list.remove(8)
+    except:
+        AttributeError
+    # создание части команды запроса для удаления аллергенов
+    s = "Алерген = NULL "
+    for i in allergyid_list:
+        s += f"OR Алерген = {i} "
+
+    # запрос удаляет из выборки блюда с выбранными аллергенами
+    # и выбирает 1-й элемент случайно отсортированной полученной таблицы
+    cur.execute(f"""
+    SELECT Код_блюда FROM (
+        SELECT Код_блюда FROM '{table_name}'
+        EXCEPT SELECT Блюдо FROM 'Алерген-блюдо' WHERE {s})
+    ORDER BY RANDOM() LIMIT 1""")
     return cur.fetchone()[0]
+
+# функция для получения id и названия аллергена
+def getAllergens(conn):
+    cur = conn.cursor()
+    cur.execute("SELECT Код_алергена, Алерген FROM 'Алергены'")
+    return cur.fetchall()
 
 # Класс, в котором хранятся название блюда и характеристики его нутриентов
 class Dish:
     def __init__(self, conn, meal_id):
+        self.meal_id = meal_id
         self.name = getMealName(conn, meal_id)
         self.calories = getMealEntryUnknown(conn, "Калории__ккал_", meal_id)
         self.fat = getMealEntryUnknown(conn, "Жиры__г_", meal_id)
@@ -115,39 +165,9 @@ def Snack(conn):
     return [Dish(conn, randomMealID(conn, "Перекусы"))]
 
 
-"""class DishList:
-    def __init__(self): pass
+conn = connect_db("databaseV2.3.db")
 
-    def Breakfast(self, conn):
-        return [Dish(conn, randomMealID(conn, "Завтрак"))]
-
-    def Lunch(self, conn):
-        if random.choice([True, False]):
-            return [Dish(conn, randomMealID(conn, "Первое")), Dish(conn, randomMealID(conn, "Основное"))]
-        else:
-            return [Dish(conn, randomMealID(conn, "Первое")), Dish(conn, randomMealID(conn, "Гарниры")),
-                    Dish(conn, randomMealID(conn, "Мясо-рыба")), Dish(conn, randomMealID(conn, "Салат"))]
-
-    def Dinner(self, conn):
-        if random.choice([True, False]):
-            return [Dish(conn, randomMealID(conn, "Основное"))]
-        else:
-            return [Dish(conn, randomMealID(conn, "Гарниры")),
-                    Dish(conn, randomMealID(conn, "Мясо-рыба")), Dish(conn, randomMealID(conn, "Салат"))]
-
-    def Snack(self, conn):
-        return [Dish(conn, randomMealID(conn, "Перекусы"))]
-"""
-
-conn = connect_db("databaseV2.1.db")
-
-"""print(getMealName(conn, 98))
-print(getMealEntryUnknown(conn, "Калории__ккал_", 10))
-
-a1 = Dish(conn, 10)
-print(a1.name, a1.calories)"""
-lang = "en" 
-
-print(Breakfast(conn)[0].name)
+lang = "en"
+allergyid_list = []
 
 close_db(conn)
