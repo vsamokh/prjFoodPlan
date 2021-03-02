@@ -56,7 +56,7 @@ def getMealEntryUnknown(conn, table_field, meal_id):
     return cur.fetchone()[0]
 
 
-
+"""
 def getMealRow(conn, meal_id):
     cur = conn.cursor()
     cur.execute(f"""SELECT * FROM 'Гарниры' where Код_блюда == {meal_id}
@@ -80,6 +80,7 @@ def getMealId(conn, name_en):
     cur = conn.cursor()
     cur.execute(f"SELECT Код_блюда FROM 'Блюда' WHERE Название_блюда__en_ = '{name_en}'")
     return cur.fetchone()[0]
+"""
 
 # Функция, возвращающая идентификатор случайного блюда
 def randomMealID(conn, table_name):
