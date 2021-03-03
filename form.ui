@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>859</width>
-    <height>534</height>
+    <width>807</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="palette">
@@ -151,8 +151,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>160</y>
+      <x>520</x>
+      <y>150</y>
       <width>231</width>
       <height>221</height>
      </rect>
@@ -167,8 +167,8 @@
    <widget class="QPushButton" name="begin_button">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>360</y>
+      <x>230</x>
+      <y>400</y>
       <width>341</width>
       <height>81</height>
      </rect>
@@ -176,7 +176,7 @@
     <property name="font">
      <font>
       <family>Roboto Slab</family>
-      <pointsize>14</pointsize>
+      <pointsize>18</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -195,92 +195,28 @@ color:black;
 font-family: 'Roboto Slab', senif;</string>
     </property>
     <property name="text">
-     <string>Begin|Начать|Розпочати</string>
+     <string>Розпочати</string>
     </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
+   <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>180</y>
-      <width>246</width>
-      <height>141</height>
+      <x>60</x>
+      <y>160</y>
+      <width>391</width>
+      <height>211</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Choose language</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Оберіть мову</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Выберите язык</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QRadioButton" name="uk">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Українська</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QRadioButton" name="en">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>English</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QRadioButton" name="ru">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Русский</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Це програма не є медичний протестованої. Якщо у вас є медичні протипоказання в плані харчування, проконсультуйтеся з вашим лікарем. Самолікування може бути шкідливим для вашого здоров'я. Натиснувши кнопку «Розпочати», ви приймаєте на себе відповідальність за своє здоров'я.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -288,7 +224,7 @@ font-family: 'Roboto Slab', senif;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>859</width>
+     <width>807</width>
      <height>26</height>
     </rect>
    </property>
