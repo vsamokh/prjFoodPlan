@@ -59,7 +59,7 @@ def getMealEntryUnknown(conn, table_field, meal_id):
 """
 def getMealRow(conn, meal_id):
     cur = conn.cursor()
-    cur.execute(f"""SELECT * FROM 'Гарниры' where Код_блюда == {meal_id}
+    cur.execute(f"SELECT * FROM 'Гарниры' where Код_блюда == {meal_id}
                     UNION
                     SELECT * FROM 'Завтрак'  where Код_блюда == {meal_id}
                     UNION
@@ -72,7 +72,7 @@ def getMealRow(conn, meal_id):
                     SELECT * FROM 'Перекусы' where Код_блюда == {meal_id}
                     UNION
                     SELECT * FROM 'Салат' where Код_блюда == {meal_id}
-                """)
+                ")
     return cur.fetchone()
 
 
@@ -139,6 +139,9 @@ class Dish:
         self.iron = getMealEntryUnknown(conn, "Железо__мг_", meal_id)
         self.magnesium = getMealEntryUnknown(conn, "Магний__мг_", meal_id)
         self.zinc = getMealEntryUnknown(conn, "Цинк_мг_", meal_id)
+
+    def Portion(self, portion):
+        self.portion = portion
 
 # Функция, возвращающая список классов Dish для завтрака
 def Breakfast(conn):
