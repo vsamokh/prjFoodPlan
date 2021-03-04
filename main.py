@@ -64,8 +64,19 @@ class Person:
 					elif i == 2:
 						self.WeekDishList[day][2] = db.Dinner(conn)
 		#количество порций соответствующее личному списку блюд
-		self.portions = Portions(self)
-		print(self.portions)
+		x = Portions(self)
+		#print(self.portions)
+		for day in range(7):
+			for i in range(len(self.WeekDishList[day][0])):
+				self.WeekDishList[day][0][i].Portion(x[day][i])
+			for i in range(len(self.WeekDishList[day][1])):
+				self.WeekDishList[day][1][i].Portion(x[day][i + len(self.WeekDishList[day][0])])
+			for i in range(len(self.WeekDishList[day][2])):
+				self.WeekDishList[day][2][i].Portion(x[day][i + len(self.WeekDishList[day][1]) + len(self.WeekDishList[day][0])])
+			for i in range(len(self.WeekDishList[day][3])):
+				self.WeekDishList[day][3][i].Portion(x[day][i + len(self.WeekDishList[day][2])+ len(self.WeekDishList[day][1]) + len(self.WeekDishList[day][0])])
+
+			
 
 #функция просчета кол-ва порций для человека
 def Portions(person):
@@ -103,12 +114,16 @@ def Portions(person):
 			a[14][i] = dishes[i].cholesterol
 			a[15][i] = dishes[i].sodium 
 			a[16][i] = dishes[i].cellulose 
+		cal = 0
 		for i in range(len(dishes)):
 			a1 = np.zeros((a.shape[1]))
 			a1[i] = -1
 			a = np.insert(a, 0, a1, axis = 0)
 			b = np.insert(b, 0, -1)
-			print(dishes[i].name)
+			a1[i] = 1
+			a = np.insert(a, 0, a1, axis = 0)
+			b = np.insert(b, 0, 20)
+			#print(dishes[i].name)
 			"""
 			a[11][i] = dishes[i].sugar * (-1)
 			a[13][i] = dishes[i].alcohol  
@@ -130,12 +145,23 @@ def Portions(person):
 		#вычисление дробного кол-ва блюд, через библеотеку scipy
 		simplex = linprog(c, a, b, method='simplex')
 		#print(a,b)
-		print("day ", day+1, ":", simplex.success)
+		#print("day ", day+1, ":", simplex.success)
 		#получение целочисленного решения
 		res[day] = BnB(a, b, c, simplex.x, simplex.fun, simplex.x)
+		if res[day][0] == 0 :
+			while cal < person.Qmin:
+				for i in range(size):
+					res[day][i] += 1	
+					cal += dishes[i].calories
+					if cal >= person.Qmin:
+						break
+		cal = 0
 		for i in range(size):
 			res[day][i] = round(res[day][i])
-		print(res[day])
+			cal += dishes[i].calories * res[day][i]
+
+		#print(cal)
+		#print(res[day])
 	return res
 
 #метод ветвей границ
@@ -200,5 +226,12 @@ for day in range(7):
 days = np.zeros((7,3))
 
 test = Person("Testovenko Test Testovich", "Male", 66, 166, 66, 1.6)
-print(test.fat_max, test.fat_min)
+#print(test.Qmin, test.Qmax)
 test.WeekPlan(days, List)
+
+for day in range(7):
+	print("\nDay", day+1, ":\n")
+	for i in range(4):
+		print("Part", i+1, ":\n")
+		for j in range(len(test.WeekDishList[day][i])):
+			print(test.WeekDishList[day][i][j].name, test.WeekDishList[day][i][j].portion)
