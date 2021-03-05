@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 import random
+import glob_settings
 
 # Функция для подключения базы данных
 def connect_db(file_name):
@@ -23,8 +24,8 @@ def getMealName(conn, meal_id):
     # Создание курсора
     cur = conn.cursor()
     # Исполнение запроса
-    if lang == "uk": cur.execute(f"SELECT Название_блюда__uk_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
-    elif lang == "ru": cur.execute(f"SELECT Название_блюда_ru_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
+    if glob_settings.lang == "uk": cur.execute(f"SELECT Название_блюда__uk_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
+    elif glob_settings.lang == "ru": cur.execute(f"SELECT Название_блюда_ru_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
     else: cur.execute(f"SELECT Название_блюда__en_ FROM 'Блюда' WHERE Код_блюда = {meal_id}")
     # функция возвращает 0-й элемент списка (список элементов рядка запроса)
     return cur.fetchone()[0]
@@ -74,8 +75,6 @@ def getMealRow(conn, meal_id):
                     SELECT * FROM 'Салат' where Код_блюда == {meal_id}
                 ")
     return cur.fetchone()
-
-
 def getMealId(conn, name_en):
     cur = conn.cursor()
     cur.execute(f"SELECT Код_блюда FROM 'Блюда' WHERE Название_блюда__en_ = '{name_en}'")
@@ -85,16 +84,14 @@ def getMealId(conn, name_en):
 # Функция, возвращающая идентификатор случайного блюда
 def randomMealID(conn, table_name):
     cur = conn.cursor()
-    # получение доступа к списку индексов аллергенов
-    global allergyid_list
     # удаление из списка 8-го варианта (аллергенов нет)
     try:
-        allergyid_list.remove(8)
+        glob_settings.allergyid_list.remove(8)
     except:
         AttributeError
     # создание части команды запроса для удаления аллергенов
     s = "Алерген = NULL "
-    for i in allergyid_list:
+    for i in glob_settings.allergyid_list:
         s += f"OR Алерген = {i} "
 
     # запрос удаляет из выборки блюда с выбранными аллергенами
@@ -170,8 +167,12 @@ def Snack(conn):
 
 
 conn = connect_db("databaseV2.3.db")
-
-lang = "en"
-allergyid_list = []
+"""
+glob_settings.glob_init()
+glob_settings.lang = "en"
+glob_settings.allergyid_list.append(1)
+print(randomMealID(conn, "Завтрак"))
+print(glob_settings.lang)
+print(glob_settings.allergyid_list)"""
 
 close_db(conn)
