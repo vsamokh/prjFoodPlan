@@ -1,4 +1,5 @@
-from PyQt5 import uic, QtWidgets, QtCore, QtGui#,QButtonGroup
+from PyQt5 import uic, QtWidgets, QtCore, QtGui
+#,QButtonGroup
 import os
 import sys
 
@@ -13,6 +14,14 @@ import sys
  #Optimalfoodplan.show()
  #ui.begin_button.clicked.connect(ui.Begin)
 #sys.exit(app.exec_())
+
+#class Test(QtWidgets.QMainWindow):
+#    super(Test, self).__init__()
+#    # self.setWindowTitle('Optimal food plan')
+#    # self.setupUi(self)
+#    uic.loadUi("form5uk.ui", self)
+
+
 class Ui4(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui4, self).__init__()
@@ -97,8 +106,10 @@ class Helper(QtWidgets.QDialog):
         # self.setupUi(self)
         uic.loadUi("helper.ui", self)
         self.closer.clicked.connect(self.Close)
+
     def Close(self):
         self.close()
+
 
 class Ui3 (QtWidgets.QMainWindow):
     def __init__(self):
@@ -116,83 +127,55 @@ class Ui3 (QtWidgets.QMainWindow):
         self.h=Helper()
         self.h.show()
 
-    def Add(self):
+    def data(self):
         name = self.name.text()
         age = self.age.text()
         height = self.height.text()
         weight = self.weight.text()
-        k = self.comboBox.currentIndex()
-        if k==0:
-            koef= 1.2
-        elif k==1:
-            koef=1.375
-        elif k==2:
-            koef = 1.55
-        elif k==3:
-            koef=1.7
-        elif k==4:
-            koef=1.9
-        if self.monday.isChecked() == True:
-            print("Monday")
-        if self.tuesday.isChecked()==True:
-            print("Tuesday")
-        if self.wednesday.isChecked()==True:
-            print("Wednesday")
-        if self.thursday.isChecked()==True:
-            print("Thursday")
-        if self.friday.isChecked()==True:
-            print("Friday")
-        if self.saturday.isChecked()==True:
-            print("Saturday")
-        if self.sunday.isCheckedd()==True:
-            print("Sanday")
         print(name)
         print(age)
         print(height)
         print(weight)
+
+        k = self.comboBox.currentIndex()
+        if k == 0:
+            koef = 1.2
+        elif k == 1:
+            koef = 1.375
+        elif k == 2:
+            koef = 1.55
+        elif k == 3:
+            koef = 1.7
+        elif k == 4:
+            koef = 1.9
         print(koef)
+        if self.monday.isChecked() == True:
+            print("Monday")
+        if self.tuesday.isChecked() == True:
+            print("Tuesday")
+        if self.wednesday.isChecked() == True:
+            print("Wednesday")
+        if self.thursday.isChecked() == True:
+            print("Thursday")
+        if self.friday.isChecked() == True:
+            print("Friday")
+        if self.saturday.isChecked() == True:
+            print("Saturday")
+        if self.sunday.isChecked() == True:
+            print("Sunday")
+
+    def Add(self):
+        self.data()
         self.a = Ui3()
         self.close()
         self.a.show()
 
     def Calculate(self):
-        name = self.name.text()
-        age = self.age.text()
-        height = self.height.text()
-        weight = self.weight.text()
-        k = self.comboBox.currentIndex()
-        if k==0:
-            koef= 1.2
-        elif k==1:
-            koef=1.375
-        elif k==2:
-            koef = 1.55
-        elif k==3:
-            koef=1.7
-        elif k==4:
-            koef=1.9
-        if self.monday.isChecked() == True:
-            print("Monday")
-        if self.tuesday.isChecked()==True:
-            print("Tuesday")
-        if self.wednesday.isChecked()==True:
-            print("Wednesday")
-        if self.thursday.isChecked()==True:
-            print("Thursday")
-        if self.friday.isChecked()==True:
-            print("Friday")
-        if self.saturday.isChecked()==True:
-            print("Saturday")
-        if self.sunday.isCheckedd()==True:
-            print("Sanday")
-        print(name)
-        print(age)
-        print(height)
-        print(weight)
-        print(koef)
+        self.data()
         self.w3 = Ui4()
         self.close()
         self.w3.show()
+
 
 class Ui2(QtWidgets.QMainWindow):
     def __init__(self):
@@ -200,7 +183,7 @@ class Ui2(QtWidgets.QMainWindow):
         # self.setWindowTitle('Optimal food plan')
         # self.setupUi(self)
         uic.loadUi("form2uk.ui", self)
-        self.next_button.clicked.connect(self.ButtonNext)
+        self.next_button.clicked.connect(self.buttonnext)
         self.a1.clicked.connect(self.A1)
         self.a2.clicked.connect(self.A2)
         self.a3.clicked.connect(self.A3)
@@ -235,10 +218,11 @@ class Ui2(QtWidgets.QMainWindow):
         print("8-No")
         #self.close()
 
-    def ButtonNext(self):
-        self.close()
+    def buttonnext(self):
         self.w2 = Ui3()
+        self.close()
         self.w2.show()
+
 
 class Ui1(QtWidgets.QMainWindow):
     def __init__(self):
