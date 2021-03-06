@@ -19,25 +19,75 @@ class Ui4(QtWidgets.QMainWindow):
         # self.setWindowTitle('Optimal food plan')
         # self.setupUi(self)
         uic.loadUi("form4uk.ui", self)
-        #self.shown.clicked.connect(self.Show)
+       # self.shown.clicked.connect(self.Show)
         self.monday.clicked.connect(self.Monday)
-        #self.tuesday.clicked.connect(self.Tuesday)
-        #self.wednesday.clicked.connect(self.Wednesday)
-        #self.thursday.clicked.connect(self.Thursday)
-        #self.friday.clicked.connect(self.Friday)
-        #self.saturday.clicked.connect(self.Saturday)
-        #self.sunday.clicked.connect(self.Sunday)
-        
-
-        #self.shown.hide()
-
+        self.tuesday.clicked.connect(self.Tuesday)
+        self.wednesday.clicked.connect(self.Wednesday)
+        self.thursday.clicked.connect(self.Thursday)
+        self.friday.clicked.connect(self.Friday)
+        self.saturday.clicked.connect(self.Saturday)
+        self.sunday.clicked.connect(self.Sunday)
+        #n=3 #количество членов семьи
+        #self.hiden(n)
+        self.name1.setText("1") #
+        self.name2.setText("2") #
+        self.name3.setText("3") #
+        self.name4.setText("4") #
+        self.name5.setText("5") #
+        self.name6.setText("6") #
         self.show()
 
-    def Show(self):
-        print("Show")
+
+
+    def Out(self):
+        self.breakfast.setText("brekfast") #
+        self.lunch.setTexet("Lunch") #
+        self.dinner.setText("Dinner")#
+        self.snacs.setText("Snacs")
+        self.b1.setText(" ")
+        self.l1.setText(" ")
+        self.d1.setText(" ")
+        self.s1.setTwxt(" ")
+        self.b2.setText(" ")
+        self.l2.setText(" ")
+        self.d2.setText(" ")
+        self.s2.setTwxt(" ")
+        self.b3.setText(" ")
+        self.l3.setText(" ")
+        self.d3.setText(" ")
+        self.s3.setTwxt(" ")
+        self.b4.setText(" ")
+        self.l4.setText(" ")
+        self.d4.setText(" ")
+        self.s4.setTwxt(" ")
+        self.b5.setText(" ")
+        self.l5.setText(" ")
+        self.d5.setText(" ")
+        self.s5.setTwxt(" ")
+        self.b6.setText(" ")
+        self.l6.setText(" ")
+        self.d6.setText(" ")
+        self.s6.setTwxt(" ")
+
+    #def Show(self):
+    #    self.test = Test()
+    #    self.close()
+    #   self.test.show()
 
     def Monday(self):
-        self.l1.setText("c")
+        self.Out()
+    def Tuesday(self):
+        self.Out()
+    def Wednesday(self):
+        self.Out()
+    def Thursday(self):
+        self.Out()
+    def Friday(self):
+        self.Out()
+    def Saturday(self):
+        self.Out()
+    def Sunday(self):
+        self.Out()
 
 
 class Helper(QtWidgets.QDialog):
