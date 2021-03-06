@@ -13,6 +13,32 @@ import sys
  #Optimalfoodplan.show()
  #ui.begin_button.clicked.connect(ui.Begin)
 #sys.exit(app.exec_())
+class Ui4(QtWidgets.QMainWindow):
+    def __init__(self):
+        super(Ui4, self).__init__()
+        # self.setWindowTitle('Optimal food plan')
+        # self.setupUi(self)
+        uic.loadUi("form4uk.ui", self)
+        #self.shown.clicked.connect(self.Show)
+        self.monday.clicked.connect(self.Monday)
+        #self.tuesday.clicked.connect(self.Tuesday)
+        #self.wednesday.clicked.connect(self.Wednesday)
+        #self.thursday.clicked.connect(self.Thursday)
+        #self.friday.clicked.connect(self.Friday)
+        #self.saturday.clicked.connect(self.Saturday)
+        #self.sunday.clicked.connect(self.Sunday)
+        
+
+        #self.shown.hide()
+
+        self.show()
+
+    def Show(self):
+        print("Show")
+
+    def Monday(self):
+        self.l1.setText("c")
+
 
 class Helper(QtWidgets.QDialog):
     def __init__(self):
@@ -24,27 +50,99 @@ class Helper(QtWidgets.QDialog):
     def Close(self):
         self.close()
 
-#class Ui3 (QtWidgets.QMainWindow):
- #   def __init__(self):
-#        super(Ui3, self).__init__()
+class Ui3 (QtWidgets.QMainWindow):
+    def __init__(self):
+        super(Ui3, self).__init__()
         # self.setWindowTitle('Optimal food plan')
         # self.setupUi(self)
-#        uic.loadUi("form3uk.ui", self)
-#        self.help.clicked.connect(self.Help)
-        #self.add.clicked.connect(self.Add)
-#        self.calculate.clicked.connect(self.Calculate)
+        uic.loadUi("form3uk.ui", self)
+        self.help.clicked.connect(self.Help)
+        self.add.clicked.connect(self.Add)
+        self.calculate.clicked.connect(self.Calculate)
 
-        # self.show()
+        self.show()
 
-#    def Help(self):
-#        self.h=Helper()
-#        self.h.show()
+    def Help(self):
+        self.h=Helper()
+        self.h.show()
 
-    #def Add(self):
-        #n=self.name.text()
-        #print("0")
+    def Add(self):
+        name = self.name.text()
+        age = self.age.text()
+        height = self.height.text()
+        weight = self.weight.text()
+        k = self.comboBox.currentIndex()
+        if k==0:
+            koef= 1.2
+        elif k==1:
+            koef=1.375
+        elif k==2:
+            koef = 1.55
+        elif k==3:
+            koef=1.7
+        elif k==4:
+            koef=1.9
+        if self.monday.isChecked() == True:
+            print("Monday")
+        if self.tuesday.isChecked()==True:
+            print("Tuesday")
+        if self.wednesday.isChecked()==True:
+            print("Wednesday")
+        if self.thursday.isChecked()==True:
+            print("Thursday")
+        if self.friday.isChecked()==True:
+            print("Friday")
+        if self.saturday.isChecked()==True:
+            print("Saturday")
+        if self.sunday.isCheckedd()==True:
+            print("Sanday")
+        print(name)
+        print(age)
+        print(height)
+        print(weight)
+        print(koef)
+        self.a = Ui3()
+        self.close()
+        self.a.show()
 
-
+    def Calculate(self):
+        name = self.name.text()
+        age = self.age.text()
+        height = self.height.text()
+        weight = self.weight.text()
+        k = self.comboBox.currentIndex()
+        if k==0:
+            koef= 1.2
+        elif k==1:
+            koef=1.375
+        elif k==2:
+            koef = 1.55
+        elif k==3:
+            koef=1.7
+        elif k==4:
+            koef=1.9
+        if self.monday.isChecked() == True:
+            print("Monday")
+        if self.tuesday.isChecked()==True:
+            print("Tuesday")
+        if self.wednesday.isChecked()==True:
+            print("Wednesday")
+        if self.thursday.isChecked()==True:
+            print("Thursday")
+        if self.friday.isChecked()==True:
+            print("Friday")
+        if self.saturday.isChecked()==True:
+            print("Saturday")
+        if self.sunday.isCheckedd()==True:
+            print("Sanday")
+        print(name)
+        print(age)
+        print(height)
+        print(weight)
+        print(koef)
+        self.w3 = Ui4()
+        self.close()
+        self.w3.show()
 
 class Ui2(QtWidgets.QMainWindow):
     def __init__(self):
