@@ -19,8 +19,6 @@ def close_db(conn):
 
 # Функция, возвращающая название блюда
 def getMealName(conn, meal_id):
-    # Получение доступа к переменной, определяющей язык (lang = uk/ru/en)
-    global lang
     # Создание курсора
     cur = conn.cursor()
     # Исполнение запроса
