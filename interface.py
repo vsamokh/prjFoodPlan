@@ -329,7 +329,7 @@ class Ui2(QtWidgets.QMainWindow):
         print("7-Seafoods")
 
     def A8(self):
-        glob_settings.allergyid_list.append(8)
+        glob_settings.allergyid_list.clear()
         print("8-No")
         #self.close()
 
