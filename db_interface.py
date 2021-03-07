@@ -82,11 +82,6 @@ def getMealId(conn, name_en):
 # Функция, возвращающая идентификатор случайного блюда
 def randomMealID(conn, table_name):
     cur = conn.cursor()
-    # удаление из списка 8-го варианта (аллергенов нет)
-    try:
-        glob_settings.allergyid_list.remove(8)
-    except:
-        AttributeError
     # создание части команды запроса для удаления аллергенов
     s = "Алерген = NULL "
     for i in glob_settings.allergyid_list:
