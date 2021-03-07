@@ -2,7 +2,12 @@ import numpy as np
 import scipy
 import math
 import db_interface as db
+import glob_settings as gb
 from scipy.optimize import linprog
+
+gb.glob_init()
+gb.lang = "uk"
+conn = db.connect_db("databaseV2.3.db")
 
 # класс в котором хранятся основные характеристики человека 
 class Person:
@@ -24,7 +29,7 @@ class Person:
 		self.K = 120
 		self.calcium = 1000
 		self.magnesium = 600
-		if gender == 'Male' :
+		if gender == 0 :
 			self.Qmin = (10 * weight + 6.25 * height -  5 * age + 5) * activity
 			self.Qmax = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * activity
 			self.alcohol = 40
@@ -50,13 +55,13 @@ class Person:
 		self.carbohydrates_max = self.Qmax / 6
 
 	#инициализация графика работы, коректировка плана питания на неделю и расчет порций
-	def WeekPlan(self, home, List):
-
+	def WeekPlan(self, work, List):
+		self.work = work
 		self.WeekDishList = List 
 		#проходим по графику работы, если человек не дома, меняем блюда на эту часть дня
 		for day in range(7):
 			for i in range(3):
-				if home[day][i] == False :
+				if work[day][i]:
 					if i == 0 :
 						self.WeekDishList[day][0] = db.Breakfast(conn)
 					elif i == 1:
@@ -208,6 +213,12 @@ def BnB (a, b, c, x, mnres, mnx):
 	
 	return mnx
 
+def DishList():
+	List = [[[]]]*7
+	for day in range(7):
+		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
+	return List
+
 """
 a = np.array([[1,2],[-3,-4],[-5,-6]])
 b = np.array([7,-8,-9])
@@ -216,9 +227,8 @@ res = linprog(c, a, b)
 print(res)
 X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
-"""
 
-conn = db.connect_db("databaseV2.3.db")
+
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
@@ -235,3 +245,4 @@ for day in range(7):
 		print("Part", i+1, ":\n")
 		for j in range(len(test.WeekDishList[day][i])):
 			print(test.WeekDishList[day][i][j].name, test.WeekDishList[day][i][j].portion)
+"""
