@@ -80,7 +80,7 @@ def getMealId(conn, name_en):
 """
 
 # Функция, возвращающая идентификатор случайного блюда
-def randomMealID(conn, table_name):
+def randomMealID(conn, table_name, mealNum):
     cur = conn.cursor()
     # создание части команды запроса для удаления аллергенов
     s = "Алерген = NULL "
@@ -93,8 +93,12 @@ def randomMealID(conn, table_name):
     SELECT Код_блюда FROM (
         SELECT Код_блюда FROM '{table_name}'
         EXCEPT SELECT Блюдо FROM 'Алерген-блюдо' WHERE {s})
-    ORDER BY RANDOM() LIMIT 1""")
-    return cur.fetchone()[0]
+    ORDER BY RANDOM() LIMIT {mealNum}""")
+    output = cur.fetchall()
+    if mealNum == 1:
+        return output[0][0]
+    else:
+        return output[0][0], output[1][0]
 
 # функция для получения id и названия аллергена
 def getAllergens(conn):
@@ -135,28 +139,30 @@ class Dish:
 
 # Функция, возвращающая список классов Dish для завтрака
 def Breakfast(conn):
-    return [Dish(conn, randomMealID(conn, "Завтрак"))]
+    a, b = randomMealID(conn, "Завтрак", 2)
+    return [Dish(conn, a), Dish(conn, b)]
 
 # Функция, возвращающая список классов Dish для обеда
 def Lunch(conn):
     # Вариант компоновки блюд определяется случайно
     if random.choice([True, False]):
-        return [Dish(conn, randomMealID(conn, "Первое")), Dish(conn, randomMealID(conn, "Основное"))]
+        return [Dish(conn, randomMealID(conn, "Первое", 1)), Dish(conn, randomMealID(conn, "Основное", 1))]
     else:
-        return [Dish(conn, randomMealID(conn, "Первое")), Dish(conn, randomMealID(conn, "Гарниры")),
-                    Dish(conn, randomMealID(conn, "Мясо-рыба")), Dish(conn, randomMealID(conn, "Салат"))]
+        return [Dish(conn, randomMealID(conn, "Первое", 1)), Dish(conn, randomMealID(conn, "Гарниры", 1)),
+                    Dish(conn, randomMealID(conn, "Мясо-рыба", 1)), Dish(conn, randomMealID(conn, "Салат", 1))]
 
 # Функция, возвращающая список классов Dish для ужина
 def Dinner(conn):
     if random.choice([True, False]):
-        return [Dish(conn, randomMealID(conn, "Основное"))]
+        return [Dish(conn, randomMealID(conn, "Основное", 1))]
     else:
-        return [Dish(conn, randomMealID(conn, "Гарниры")),
-                    Dish(conn, randomMealID(conn, "Мясо-рыба")), Dish(conn, randomMealID(conn, "Салат"))]
+        return [Dish(conn, randomMealID(conn, "Гарниры", 1)),
+                    Dish(conn, randomMealID(conn, "Мясо-рыба", 1)), Dish(conn, randomMealID(conn, "Салат", 1))]
 
 # Функция, возвращающая список классов Dish для перекуса
 def Snack(conn):
-    return [Dish(conn, randomMealID(conn, "Перекусы"))]
+    a, b = randomMealID(conn, "Перекусы", 2)
+    return [Dish(conn, a), Dish(conn, b)]
 
 
 conn = connect_db("databaseV2.3.db")
