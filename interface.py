@@ -4,7 +4,7 @@ import os
 import sys
 import numpy as np
 import algorithms as al
-
+import glob_settings
 #from form import *
 
 
@@ -282,6 +282,7 @@ class Ui3 (QtWidgets.QMainWindow):
         self.w3.show()
 
 
+
 class Ui2(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui2, self).__init__()
@@ -298,28 +299,37 @@ class Ui2(QtWidgets.QMainWindow):
         self.a7.clicked.connect(self.A7)
         self.a8.clicked.connect(self.A8)
         # self.show()
+
     def A1(self):
+        glob_settings.allergyid_list.append(1)
         print("1-Gluten")
 
     def A2(self):
+        glob_settings.allergyid_list.append(2)
         print("2-Lactoze")
 
     def A3(self):
+        glob_settings.allergyid_list.append(3)
         print("3-Dairy")
 
     def A4(self):
+        glob_settings.allergyid_list.append(4)
         print("4-Eggs")
 
     def A5(self):
+        glob_settings.allergyid_list.append(5)
         print("5-Nuts")
 
     def A6(self):
+        glob_settings.allergyid_list.append(6)
         print("6-Soy")
 
     def A7(self):
+        glob_settings.allergyid_list.append(7)
         print("7-Seafoods")
 
     def A8(self):
+        glob_settings.allergyid_list.append(8)
         print("8-No")
         #self.close()
 
