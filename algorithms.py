@@ -47,12 +47,12 @@ class Person:
 			self.C = 75
 			self.iron = 30
 			self.zinc = 12
-		self.fat_min = self.Qmin / 54
-		self.proteins_min = self.Qmin / 24
-		self.carbohydrates_min = self.Qmin / 6
-		self.fat_max = self.Qmax / 54
-		self.proteins_max = self.Qmax / 24
-		self.carbohydrates_max = self.Qmax / 6
+		self.fat_min = weight * 0.8
+		self.proteins_min = weight * 1.5
+		self.carbohydrates_min = weight * 2 - 10
+		self.fat_max = weight
+		self.proteins_max = weight * 2
+		self.carbohydrates_max = weight * 2 + 10
 
 	#инициализация графика работы, коректировка плана питания на неделю и расчет порций
 	def WeekPlan(self, work, List):
@@ -94,7 +94,7 @@ def Portions(person):
 		c = np.ones(size)
 		#масив ограничений
 		#b = np.array([person.Qmax*0.3, person.Qmin*0.3*(-1),person.Qmax*0.35, person.Qmin*0.35*(-1),person.Qmax*0.20, person.Qmin*0.20*(-1),person.Qmax*0.15, person.Qmin*0.15*(-1), person.fat*(-1) , person.proteins*(-1) ,  person.carbohydrates*(-1) ,  person.sugar*(-1) , person.cholesterol *(-1),  person.alcohol ,  person.caffeine ,  person.sodium *(-1),  person.cellulose *(-1),  person.A *(-1),  person.B1*(-1) ,  person.B6 *(-1),  person.B12 *(-1),  person.C *(-1),  person.D *(-1),  person.E *(-1),  person.K *(-1),  person.calcium *(-1),  person.iron *(-1),  person.magnesium*(-1),  person.zinc *(-1)])
-		b = np.array([person.Qmax*0.3,person.Qmin*0.3*(-1),person.Qmax*0.35, person.Qmin*0.35*(-1),person.Qmax*0.20, person.Qmin*0.20*(-1),person.Qmax*0.15, person.Qmin*0.15*(-1), person.fat_min * (-1)+20, person.fat_max+20, person.proteins_min * (-1)+50, person.proteins_max+50, person.carbohydrates_min * (-1)+75, person.carbohydrates_max+75, person.cholesterol, person.sodium,  person.cellulose])
+		b = np.array([person.Qmax*0.3*1.2,person.Qmin*0.3*(-1)*0.8,person.Qmax*0.35*1.2, person.Qmin*0.35*(-1)*0.8,person.Qmax*0.20*1.2, person.Qmin*0.20*(-1)*0.8,person.Qmax*0.15*1.2, person.Qmin*0.15*(-1)*0.8, person.fat_min * (-1)*0.8, person.fat_max*1.2, person.proteins_min * (-1)*0.8, person.proteins_max*1.2, person.carbohydrates_min * (-1)*0.8, person.carbohydrates_max*1.2, person.cholesterol, person.sodium,  person.cellulose])
 		#заполнение масива параметров блюд
 		for i in range(len(person.WeekDishList[day][0])):
 			a[0][i] = person.WeekDishList[day][0][i].calories
@@ -150,7 +150,7 @@ def Portions(person):
 		#вычисление дробного кол-ва блюд, через библеотеку scipy
 		simplex = linprog(c, a, b, method='simplex')
 		#print(a,b)
-		#print("day ", day+1, ":", simplex.success)
+		print("day ", day+1, ":", simplex.success)
 		#получение целочисленного решения
 		res[day] = BnB(a, b, c, simplex.x, simplex.fun, simplex.x)
 		if res[day][0] == 0 :
@@ -229,6 +229,7 @@ X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
 
 
+
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
@@ -238,7 +239,6 @@ days = np.zeros((7,3))
 test = Person("Testovenko Test Testovich", "Male", 66, 166, 66, 1.6)
 #print(test.Qmin, test.Qmax)
 test.WeekPlan(days, List)
-
 for day in range(7):
 	print("\nDay", day+1, ":\n")
 	for i in range(4):
