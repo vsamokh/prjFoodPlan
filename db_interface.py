@@ -134,8 +134,6 @@ class Dish:
         self.magnesium = getMealEntryUnknown(conn, "Магний__мг_", meal_id)
         self.zinc = getMealEntryUnknown(conn, "Цинк_мг_", meal_id)
 
-    def Portion(self, portion):
-        self.portion = portion
 
 # Функция, возвращающая список классов Dish для завтрака
 def Breakfast(conn):

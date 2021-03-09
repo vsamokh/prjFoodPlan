@@ -18,21 +18,66 @@ import glob_settings
 #sys.exit(app.exec_())
 
 class Data(QtWidgets.QMainWindow):
-    def __init__(self): #, dishlist, family, num
-        #        #self.dishlist = dishlist
-        #self.family = family
-        #self.num = num
+    def __init__(self, family, num):
         super(Data, self).__init__()
         # self.setWindowTitle('Optimal food plan')
         # self.setupUi(self)
         uic.loadUi("form5.ui", self)
-        self.name.setText("")
-        self.gender.setText("")
-        self.age.setText("")
-        self.weight.setText("")
-        self.height.setText("")
-        self.activity.setText("")
-        self.alergens.setText("")
+        names = ""
+        ages = ""
+        genders = ""
+        weights = ""
+        heights = ""
+        activitys = ""
+        alergens = ""
+        for i in range(num):
+            names += str(i+1) + ") " + family[i].name + "\n"
+            ages += str(i+1) + ") " + str(family[i].age) + "\n"
+        
+            genders += str(i+1) + ") "
+            if family[i].gender == 0:
+                genders += "Чоловіча\n"
+            else:
+                genders += "Жіноча\n"
+            weights += str(i+1) + ") " + str(family[i].weight) + "кг.\n"
+            heights += str(i+1) + ") " + str(family[i].height) + "см.\n"
+            activitys += str(i+1) + ") "
+            if family[i].activity == 1.2:
+                activitys += "Дуже слабка\n"
+            elif family[i].activity == 1.375:
+                activitys += "Cлабка\n"
+            elif family[i].activity == 1.55:
+                activitys += "Середня\n"
+            elif family[i].activity == 1.7:
+                activitys += "Висока\n"
+            elif family[i].activity == 1.9:
+                activitys += "Екстримальна\n"
+        """
+        for i in range(glob_settings.allergyid_list):
+            if glob_settings.allergyid_list[i] == 1:
+                alergens += "Глютен\n"
+            if glob_settings.allergyid_list[i] == 2:
+                alergens += "Лактоза\n"
+            if glob_settings.allergyid_list[i] == 3:
+                alergens += "Молочні продукти\n"
+            if glob_settings.allergyid_list[i] == 4:
+                alergens += "Яйця\n"
+            if glob_settings.allergyid_list[i] == 5:
+                alergens += "Горіхи\n"
+            if glob_settings.allergyid_list[i] == 6:
+                alergens += "Соя\n"
+            if glob_settings.allergyid_list[i] == 7:
+                alergens += "Морепродукти\n"
+        """
+        if alergens == "":
+            alergens = "Нема"
+        self.name.setText(names)
+        self.gender.setText(genders)
+        self.age.setText(ages)
+        self.weight.setText(weights)
+        self.height.setText(heights)
+        self.activity.setText(activitys)
+        self.alergens.setText(alergens)
         self.pushButton.clicked.connect(self.Return)
         self.show()
 
@@ -150,7 +195,7 @@ class Ui4(QtWidgets.QMainWindow):
         # self.setWindowTitle('Optimal food plan')
         # self.setupUi(self)
         uic.loadUi("form4uk.ui", self)
-       # self.shown.clicked.connect(self.Show)
+        # self.shown.clicked.connect(self.Show)
         self.monday.clicked.connect(self.Monday)
         self.tuesday.clicked.connect(self.Tuesday)
         self.wednesday.clicked.connect(self.Wednesday)
@@ -189,7 +234,7 @@ class Ui4(QtWidgets.QMainWindow):
 
 
     def Out(self, day):
-
+        
         breakfast = ""
         for i in range(len(self.dishlist[day][0])):
             breakfast += str(i+1) + ") " + self.dishlist[day][0][i].name+"\n"
@@ -218,20 +263,20 @@ class Ui4(QtWidgets.QMainWindow):
         for j in range(self.num):
             b[j] = ""
             for i in range(len(self.dishlist[day][0])):
-                b[j] += str(i+1) + ") " + str(self.family[j].WeekDishList[day][0][i].portion)+"\n"
+                b[j] += str(i+1) + ") " + str(self.family[j].portion[day][0][i])+"\n"
             l[j] = ""
-            if self.family[0].work[day][1] != True:
+            if self.family[j].work[day][1] != True:
                 for i in range(len(self.dishlist[day][1])):
-                    l[j] += str(i+1) + ") " + str(self.family[j].WeekDishList[day][1][i].portion)+"\n"
+                    l[j] += str(i+1) + ") " + str(self.family[j].portion[day][1][i])+"\n"
             else:
                 l[j] = "Рекомендуємо блюда з калорійністю від " + str(round(self.family[j].Qmin*0.35,3)) + " до " + str(round(self.family[j].Qmax*0.35,3))
             d[j] = ""
             for i in range(len(self.dishlist[day][2])):
-                d[j] += str(i+1) + ") " + str(self.family[j].WeekDishList[day][2][i].portion)+"\n"
+                d[j] += str(i+1) + ") " + str(self.family[j].portion[day][2][i])+"\n"
 
             s[j] = ""
             for i in range(len(self.dishlist[day][3])):
-                s[j] += str(i+1) + ") " + str(self.family[j].WeekDishList[day][3][i].portion)+"\n"
+                s[j] += str(i+1) + ") " + str(self.family[j].portion[day][3][i])+"\n"
 
         self.b1.setText(b[0])
         self.l1.setText(l[0])
@@ -269,7 +314,7 @@ class Ui4(QtWidgets.QMainWindow):
         #self.close()
         self.test.show()
     def Shown1(self):
-        self.data = Data()
+        self.data = Data(self.family,self.num)
         #self.close()
         self.data.show()
 
@@ -440,9 +485,11 @@ class Ui2(QtWidgets.QMainWindow):
         if self.a7.isChecked()==True:
             glob_settings.allergyid_list.append(7)
             print("Seafoods")
+        """
         if self.a8.isChecked()==True:
             glob_settings.allergyid_list.clear()
             print("No")
+        """
         self.w2 = Ui3()
         self.close()
         self.w2.show()

@@ -19,6 +19,7 @@ class Person:
 		Инициализация основных характеристик человека 
 		"""
 		self.name = name
+		self.gender = gender
 		self.weight = weight
 		self.height = height
 		self.age = age
@@ -78,17 +79,23 @@ class Person:
 						self.WeekDishList[day][2] = db.Dinner(conn)
 		#количество порций соответствующее личному списку блюд
 		x = Portions(self)
-		#print(self.portions)
+		print(x)
+		self.portion = [[[] for _ in range(4)] for _ in range(7)]
+		#print(self.portion)
 		for day in range(7):
 			for i in range(len(self.WeekDishList[day][0])):
-				self.WeekDishList[day][0][i].Portion(x[day][i])
+				self.portion[day][0].append(x[day][i])
+				#print(self.portion,"\n")
 			for i in range(len(self.WeekDishList[day][1])):
-				self.WeekDishList[day][1][i].Portion(x[day][i + len(self.WeekDishList[day][0])])
+				self.portion[day][1].append(x[day][i + len(self.WeekDishList[day][0])])
+				#print(self.portion,"\n")
 			for i in range(len(self.WeekDishList[day][2])):
-				self.WeekDishList[day][2][i].Portion(x[day][i + len(self.WeekDishList[day][1]) + len(self.WeekDishList[day][0])])
+				self.portion[day][2].append(x[day][i + len(self.WeekDishList[day][1]) + len(self.WeekDishList[day][0])])
+				#print(self.portion,"\n")
 			for i in range(len(self.WeekDishList[day][3])):
-				self.WeekDishList[day][3][i].Portion(x[day][i + len(self.WeekDishList[day][2])+ len(self.WeekDishList[day][1]) + len(self.WeekDishList[day][0])])
-
+				self.portion[day][3].append(x[day][i + len(self.WeekDishList[day][2])+ len(self.WeekDishList[day][1]) + len(self.WeekDishList[day][0])])
+				#print(self.portion,"\n")
+		print(self.portion)
 			
 
 def Portions(person):
@@ -161,7 +168,7 @@ def Portions(person):
 		#вычисление дробного кол-ва блюд, через библеотеку scipy
 		simplex = linprog(c, a, b, method='simplex')
 		#print(a,b)
-		print("day ", day+1, ":", simplex.success)
+		#print("day ", day+1, ":", simplex.success)
 		#получение целочисленного решения
 		res[day] = BnB(a, b, c, simplex.x, simplex.fun, simplex.x)
 		if res[day][0] == 0 :
@@ -243,8 +250,6 @@ print(res)
 X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
 
-
-
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
@@ -254,6 +259,7 @@ days = np.zeros((7,3))
 test = Person("Testovenko Test Testovich", "Male", 66, 166, 66, 1.6)
 #print(test.Qmin, test.Qmax)
 test.WeekPlan(days, List)
+print(test.portion[1][1][1])
 for day in range(7):
 	print("\nDay", day+1, ":\n")
 	for i in range(4):
