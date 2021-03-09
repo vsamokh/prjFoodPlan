@@ -17,11 +17,129 @@ import glob_settings
  #ui.begin_button.clicked.connect(ui.Begin)
 #sys.exit(app.exec_())
 
-#class Test(QtWidgets.QMainWindow):
-#    super(Test, self).__init__()
-#    # self.setWindowTitle('Optimal food plan')
-#    # self.setupUi(self)
-#    uic.loadUi("form5uk.ui", self)
+class Data(QtWidgets.QMainWindow):
+    def __init__(self): #, dishlist, family, num
+        #        #self.dishlist = dishlist
+        #self.family = family
+        #self.num = num
+        super(Data, self).__init__()
+        # self.setWindowTitle('Optimal food plan')
+        # self.setupUi(self)
+        uic.loadUi("form5.ui", self)
+        self.name.setText("")
+        self.gender.setText("")
+        self.age.setText("")
+        self.weight.setText("")
+        self.height.setText("")
+        self.activity.setText("")
+        self.alergens.setText("")
+        self.pushButton.clicked.connect(self.Return)
+        self.show()
+
+    def Return(self):
+        self.close()
+
+
+class Test(QtWidgets.QMainWindow):
+    def __init__(self):
+        super(Test, self).__init__()
+        # self.setWindowTitle('Optimal food plan')
+        # self.setupUi(self)
+        uic.loadUi("form6.ui", self)
+        """
+        self.name1_3.setText(self.family[0].name)
+        self.k1.setText() # количество калорий в рационе
+        self.b1_3.setText() # количество белка в рационе
+        self.f1.setText() # количестважира в рационе
+        self.c1.setText() #количество углевода в рационе
+        self.n1.settext()#количество натрия в рационе
+        self.kl1.setText() #количество клетчатки в рационе
+        self.h1.setText() # количество холестерина в рационе
+        self.nk1.settext() #  норма калорий
+        self.nb1.setText() #норма белка
+        self.nf1.setText() #норма жира
+        self.nc1.setText() # норма углевов
+        if self.num > 1:
+            self.name2_3.setText() #self.family[1].name
+            self.k2.setText()  # количество калорий в рационе
+            self.b2_3.setText()  # количество белка в рационе
+            self.f2.setText()  # количестважира в рационе
+            self.c2.setText()  # количество углевода в рационе
+            self.n2.settext()  # количество натрия в рационе
+            self.kl2.setText()  # количество клетчатки в рационе
+            self.h2.setText()  # количество холестерина в рационе
+            self.nk2.settext()  # норма калорий
+            self.nb2.setText()  # норма белка
+            self.nf2.setText()  # норма жира
+            self.nc2.setText()  # норма углевов
+        else:
+            self.name2_3.setText(" ")
+        if self.num > 2:
+            self.name3_3.setText() #self.family[2].name
+            self.k3.setText()  # количество калорий в рационе
+            self.b3_3.setText()  # количество белка в рационе
+            self.f3.setText()  # количестважира в рационе
+            self.c3.setText()  # количество углевода в рационе
+            self.n3.settext()  # количество натрия в рационе
+            self.kl3.setText()  # количество клетчатки в рационе
+            self.h3.setText()  # количество холестерина в рационе
+            self.nk3.settext()  # норма калорий
+            self.nb3.setText()  # норма белка
+            self.nf3.setText()  # норма жира
+            self.nc3.setText()  # норма углевов
+        else:
+            self.name3_3.setText(" ")
+        if self.num > 3:
+            self.name4_3.setText() #self.family[3].name
+            self.k4.setText()  # количество калорий в рационе
+            self.b4_3.setText()  # количество белка в рационе
+            self.f4.setText()  # количестважира в рационе
+            self.c4.setText()  # количество углевода в рационе
+            self.n4.settext()  # количество натрия в рационе
+            self.kl4.setText()  # количество клетчатки в рационе
+            self.h4.setText()  # количество холестерина в рационе
+            self.nk4.settext()  # норма калорий
+            self.nb4.setText()  # норма белка
+            self.nf4.setText()  # норма жира
+            self.nc4.setText()  # норма углевов
+        else:
+            self.name4_3.setText(" ")
+        if self.num > 4:
+            self.name5_3.setText() #self.family[4].name
+            self.k5.setText()  # количество калорий в рационе
+            self.b5_3.setText()  # количество белка в рационе
+            self.f5.setText()  # количестважира в рационе
+            self.c5.setText()  # количество углевода в рационе
+            self.n5.settext()  # количество натрия в рационе
+            self.kl5.setText()  # количество клетчатки в рационе
+            self.h5.setText()  # количество холестерина в рационе
+            self.nk5.settext()  # норма калорий
+            self.nb5.setText()  # норма белка
+            self.nf5.setText()  # норма жира
+            self.nc5.setText()  # норма углевов
+        else:
+            self.name5_3.setText(" ")
+        if self.num > 5:
+            self.name6_3.setText() #self.family[5].name
+            self.k6.setText()  # количество калорий в рационе
+            self.b6_3.setText()  # количество белка в рационе
+            self.f6.setText()  # количестважира в рационе
+            self.c6.setText()  # количество углевода в рационе
+            self.n6.settext()  # количество натрия в рационе
+            self.kl6.setText()  # количество клетчатки в рационе
+            self.h6.setText()  # количество холестерина в рационе
+            self.nk6.settext()  # норма калорий
+            self.nb6.setText()  # норма белка
+            self.nf6.setText()  # норма жира
+            self.nc6.setText()  # норма углевов
+        else:
+            self.name6_3.setText(" ")"""
+        self.pushButton.clicked.connect(self.Back)
+        self.show()
+
+    def Back(self):
+        self.close()
+
 
 class Ui4(QtWidgets.QMainWindow):
     def __init__(self, dishlist, family, num):
@@ -40,6 +158,8 @@ class Ui4(QtWidgets.QMainWindow):
         self.friday.clicked.connect(self.Friday)
         self.saturday.clicked.connect(self.Saturday)
         self.sunday.clicked.connect(self.Sunday)
+        self.shown.clicked.connect(self.Shown)
+        self.shown1.clicked.connect(self.Shown1)
         #n=3 #количество членов семьи
         #self.hiden(n)
         print(num)
@@ -144,10 +264,14 @@ class Ui4(QtWidgets.QMainWindow):
             self.d6.setText(d[5])
             self.s6.setText(s[5])
 
-    #def Show(self):
-    #    self.test = Test()
-    #    self.close()
-    #   self.test.show()
+    def Shown(self):
+        self.test = Test()
+        #self.close()
+        self.test.show()
+    def Shown1(self):
+        self.data = Data()
+        #self.close()
+        self.data.show()
 
     def Monday(self):
         self.Out(0)
@@ -290,50 +414,35 @@ class Ui2(QtWidgets.QMainWindow):
         # self.setupUi(self)
         uic.loadUi("form2uk.ui", self)
         self.next_button.clicked.connect(self.buttonnext)
-        self.a1.clicked.connect(self.A1)
-        self.a2.clicked.connect(self.A2)
-        self.a3.clicked.connect(self.A3)
-        self.a4.clicked.connect(self.A4)
-        self.a5.clicked.connect(self.A5)
-        self.a6.clicked.connect(self.A6)
-        self.a7.clicked.connect(self.A7)
-        self.a8.clicked.connect(self.A8)
         # self.show()
 
-    def A1(self):
-        glob_settings.allergyid_list.append(1)
-        print("1-Gluten")
 
-    def A2(self):
-        glob_settings.allergyid_list.append(2)
-        print("2-Lactoze")
-
-    def A3(self):
-        glob_settings.allergyid_list.append(3)
-        print("3-Dairy")
-
-    def A4(self):
-        glob_settings.allergyid_list.append(4)
-        print("4-Eggs")
-
-    def A5(self):
-        glob_settings.allergyid_list.append(5)
-        print("5-Nuts")
-
-    def A6(self):
-        glob_settings.allergyid_list.append(6)
-        print("6-Soy")
-
-    def A7(self):
-        glob_settings.allergyid_list.append(7)
-        print("7-Seafoods")
-
-    def A8(self):
-        glob_settings.allergyid_list.clear()
-        print("8-No")
-        #self.close()
 
     def buttonnext(self):
+        if self.a1.isChecked()==True:
+            glob_settings.allergyid_list.append(1)
+            print("Gluten")
+        if self.a2.isChecked()==True:
+            glob_settings.allergyid_list.append(2)
+            print("lactose")
+        if self.a3.isChecked()==True:
+            glob_settings.allergyid_list.append(3)
+            print("Dairy")
+        if self.a4.isChecked()==True:
+            glob_settings.allergyid_list.append(4)
+            print("Eggs")
+        if self.a5.isChecked()==True:
+            glob_settings.allergyid_list.append(5)
+            print("Nuts")
+        if self.a6.isChecked()==True:
+            glob_settings.allergyid_list.append(6)
+            print("Soy")
+        if self.a7.isChecked()==True:
+            glob_settings.allergyid_list.append(7)
+            print("Seafoods")
+        if self.a8.isChecked()==True:
+            glob_settings.allergyid_list.clear()
+            print("No")
         self.w2 = Ui3()
         self.close()
         self.w2.show()
@@ -357,6 +466,7 @@ class Ui1(QtWidgets.QMainWindow):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     w = Ui1()
+    #w = Test()
     # w.show()
     # sys.exit(app.exec_())
     app.exec_()
