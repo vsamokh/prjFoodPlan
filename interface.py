@@ -52,8 +52,7 @@ class Data(QtWidgets.QMainWindow):
                 activitys += "Висока\n"
             elif family[i].activity == 1.9:
                 activitys += "Екстримальна\n"
-        """
-        for i in range(glob_settings.allergyid_list):
+        for i in range(len(glob_settings.allergyid_list)):
             if glob_settings.allergyid_list[i] == 1:
                 alergens += "Глютен\n"
             if glob_settings.allergyid_list[i] == 2:
@@ -68,7 +67,6 @@ class Data(QtWidgets.QMainWindow):
                 alergens += "Соя\n"
             if glob_settings.allergyid_list[i] == 7:
                 alergens += "Морепродукти\n"
-        """
         if alergens == "":
             alergens = "Нема"
         self.name.setText(names)
@@ -86,12 +84,24 @@ class Data(QtWidgets.QMainWindow):
 
 
 class Test(QtWidgets.QMainWindow):
-    def __init__(self):
+    def __init__(self, dishlist, family, num):
         super(Test, self).__init__()
         # self.setWindowTitle('Optimal food plan')
         # self.setupUi(self)
         uic.loadUi("form6.ui", self)
+        calories = []
+        proteins =[]
+        fats = []
+        carbohydrates = []
+        cholesterol = []
+        cellulose = []
+        sodium = []
         """
+        for i in range(num):
+            for day in range(7):
+                for j in range(4):
+                    for k in range(len(family[i].WeekDishList[day][j])):
+                        calories[i] += 
         self.name1_3.setText(self.family[0].name)
         self.k1.setText() # количество калорий в рационе
         self.b1_3.setText() # количество белка в рационе
@@ -178,7 +188,8 @@ class Test(QtWidgets.QMainWindow):
             self.nf6.setText()  # норма жира
             self.nc6.setText()  # норма углевов
         else:
-            self.name6_3.setText(" ")"""
+            self.name6_3.setText(" ")
+        """
         self.pushButton.clicked.connect(self.Back)
         self.show()
 
@@ -310,7 +321,7 @@ class Ui4(QtWidgets.QMainWindow):
             self.s6.setText(s[5])
 
     def Shown(self):
-        self.test = Test()
+        self.test = Test(self.dishlist, self.family, self.num)
         #self.close()
         self.test.show()
     def Shown1(self):
