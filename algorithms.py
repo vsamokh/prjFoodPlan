@@ -9,9 +9,15 @@ gb.glob_init()
 gb.lang = "uk"
 conn = db.connect_db("databaseV2.3.db")
 
-# класс в котором хранятся основные характеристики человека 
+
 class Person:
+	"""
+	Класс в котором хранятся основные характеристики человека 
+	"""
 	def __init__(self, name, gender, weight, height, age, activity):
+		"""
+		Инициализация основных характеристик человека 
+		"""
 		self.name = name
 		self.weight = weight
 		self.height = height
@@ -54,8 +60,10 @@ class Person:
 		self.proteins_max = weight * 2
 		self.carbohydrates_max = weight * 2 + 10
 
-	#инициализация графика работы, коректировка плана питания на неделю и расчет порций
 	def WeekPlan(self, work, List):
+		"""
+		Инициализация графика работы, коректировка плана питания на неделю и расчет порций
+		"""
 		self.work = work
 		self.WeekDishList = List 
 		#проходим по графику работы, если человек не дома, меняем блюда на эту часть дня
@@ -83,8 +91,11 @@ class Person:
 
 			
 
-#функция просчета кол-ва порций для человека
 def Portions(person):
+	"""
+	Функция просчета кол-ва порций для человека
+
+	"""
 	res = [[]]*7
 	for day in range(7):
 		size = len(person.WeekDishList[day][0]) + len(person.WeekDishList[day][1]) + len(person.WeekDishList[day][2]) + len(person.WeekDishList[day][3])
@@ -169,10 +180,11 @@ def Portions(person):
 		#print(res[day])
 	return res
 
-#метод ветвей границ
 def BnB (a, b, c, x, mnres, mnx):
+	"""
+	Метод ветвей границ, для нахождения целого решения сипмлекс метода
+	"""
 	#проходим по масиву порций
-	
 	for i in range(len(x)):
 			#если порция не целая, делаем округление вверх и вниз с записью в новые переменные
 			if x[i] != math.floor(x[i]):
@@ -214,6 +226,9 @@ def BnB (a, b, c, x, mnres, mnx):
 	return mnx
 
 def DishList():
+	"""
+	Функция формирующая список блюд на неделю
+	"""
 	List = [[[]]]*7
 	for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
