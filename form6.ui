@@ -115,57 +115,8 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="8" column="3">
-      <widget class="QLabel" name="nk3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="5">
-      <widget class="QLabel" name="nf5">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="4">
-      <widget class="QLabel" name="nf4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QLabel" name="kl1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="5">
-      <widget class="QLabel" name="b5_3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="3">
-      <widget class="QLabel" name="nb3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="2">
-      <widget class="QLabel" name="kl2">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="2">
-      <widget class="QLabel" name="nk2">
+     <item row="4" column="4">
+      <widget class="QLabel" name="c4">
        <property name="text">
         <string/>
        </property>
@@ -178,41 +129,8 @@
        </property>
       </widget>
      </item>
-     <item row="11" column="5">
-      <widget class="QLabel" name="nc5">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_24">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Норма білків</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="5">
-      <widget class="QLabel" name="k5">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="5">
-      <widget class="QLabel" name="n5">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="5">
-      <widget class="QLabel" name="kl5">
+     <item row="5" column="2">
+      <widget class="QLabel" name="n2">
        <property name="text">
         <string/>
        </property>
@@ -225,151 +143,27 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="3">
-      <widget class="QLabel" name="f3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLabel" name="k3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="4">
-      <widget class="QLabel" name="kl4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="5">
-      <widget class="QLabel" name="h5">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="k1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="f1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="6">
-      <widget class="QLabel" name="h6">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="2">
-      <widget class="QLabel" name="nc2">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_19">
+     <item row="11" column="0">
+      <widget class="QLabel" name="label_26">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>Вуглеводи</string>
+        <string>Норма віглеводів</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="label_23">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Норма кілокалорій</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="b1_3">
+     <item row="1" column="4">
+      <widget class="QLabel" name="k4">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QLabel" name="n1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="3">
-      <widget class="QLabel" name="kl3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="6">
-      <widget class="QLabel" name="nc6">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLabel" name="b2_3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="4">
-      <widget class="QLabel" name="n4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <widget class="QLabel" name="f2">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="3">
-      <widget class="QLabel" name="h3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="3">
-      <widget class="QLabel" name="n3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="5">
-      <widget class="QLabel" name="nb5">
+     <item row="11" column="1">
+      <widget class="QLabel" name="nc1">
        <property name="text">
         <string/>
        </property>
@@ -382,151 +176,36 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="3">
-      <widget class="QLabel" name="b3_3">
+     <item row="10" column="3">
+      <widget class="QLabel" name="nf3">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="k2">
+     <item row="3" column="1">
+      <widget class="QLabel" name="f1">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="7" column="0">
-      <widget class="QLabel" name="label_22">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Холестерин</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="6">
-      <widget class="QLabel" name="f6">
+     <item row="10" column="2">
+      <widget class="QLabel" name="nf2">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_17">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Білки</string>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="4">
-      <widget class="QLabel" name="nb4">
+     <item row="9" column="6">
+      <widget class="QLabel" name="nb6">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="c1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="4">
-      <widget class="QLabel" name="nc4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="name3_3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="2">
-      <widget class="QLabel" name="nb2">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="5">
-      <widget class="QLabel" name="nk5">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="6">
-      <widget class="QLabel" name="nf6">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLabel" name="k4">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QLabel" name="h1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QLabel" name="nk1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="1">
-      <widget class="QLabel" name="nf1">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="6">
-      <widget class="QLabel" name="c6">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="6">
-      <widget class="QLabel" name="k6">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="6">
-      <widget class="QLabel" name="name6_3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <widget class="QLabel" name="nb1">
+     <item row="5" column="4">
+      <widget class="QLabel" name="n4">
        <property name="text">
         <string/>
        </property>
@@ -544,31 +223,15 @@
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
-      <widget class="QLabel" name="nc1">
-       <property name="text">
-        <string/>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_18">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
-      </widget>
-     </item>
-     <item row="4" column="4">
-      <widget class="QLabel" name="c4">
        <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="2">
-      <widget class="QLabel" name="nf2">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="6">
-      <widget class="QLabel" name="n6">
-       <property name="text">
-        <string/>
+        <string>Жири</string>
        </property>
       </widget>
      </item>
@@ -584,8 +247,69 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="name4_3">
+     <item row="0" column="6">
+      <widget class="QLabel" name="name6_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLabel" name="nf1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="6">
+      <widget class="QLabel" name="k6">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_24">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Норма білків</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="n1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="2">
+      <widget class="QLabel" name="nb2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="nk1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="4">
+      <widget class="QLabel" name="h4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="6">
+      <widget class="QLabel" name="c6">
        <property name="text">
         <string/>
        </property>
@@ -598,60 +322,64 @@
        </property>
       </widget>
      </item>
-     <item row="9" column="6">
-      <widget class="QLabel" name="nb6">
+     <item row="9" column="3">
+      <widget class="QLabel" name="nb3">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="4" column="5">
-      <widget class="QLabel" name="c5">
+     <item row="6" column="5">
+      <widget class="QLabel" name="kl5">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_18">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Жири</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="5">
-      <widget class="QLabel" name="f5">
+     <item row="6" column="3">
+      <widget class="QLabel" name="kl3">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="4" column="3">
-      <widget class="QLabel" name="c3">
+     <item row="7" column="5">
+      <widget class="QLabel" name="h5">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_21">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
+     <item row="11" column="4">
+      <widget class="QLabel" name="nc4">
        <property name="text">
-        <string>Клітковина</string>
+        <string/>
        </property>
       </widget>
      </item>
-     <item row="0" column="5">
-      <widget class="QLabel" name="name5_3">
+     <item row="1" column="3">
+      <widget class="QLabel" name="k3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QLabel" name="h3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="kl1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="4">
+      <widget class="QLabel" name="nb4">
        <property name="text">
         <string/>
        </property>
@@ -669,6 +397,62 @@
        </property>
       </widget>
      </item>
+     <item row="4" column="2">
+      <widget class="QLabel" name="c2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="c1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QLabel" name="f3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="name4_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QLabel" name="c3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="5">
+      <widget class="QLabel" name="nc5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="5">
+      <widget class="QLabel" name="nk5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="2">
+      <widget class="QLabel" name="nc2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
      <item row="11" column="3">
       <widget class="QLabel" name="nc3">
        <property name="text">
@@ -676,15 +460,149 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="6">
-      <widget class="QLabel" name="kl6">
+     <item row="2" column="1">
+      <widget class="QLabel" name="b1_3">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="10" column="3">
-      <widget class="QLabel" name="nf3">
+     <item row="0" column="1">
+      <widget class="QLabel" name="name1_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="k1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="f2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QLabel" name="k5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="name3_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_22">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Холестерин</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLabel" name="name5_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLabel" name="b3_3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="5">
+      <widget class="QLabel" name="c5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="h1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLabel" name="kl2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_23">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Норма кілокалорій</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="5">
+      <widget class="QLabel" name="nf5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="6">
+      <widget class="QLabel" name="nf6">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="3">
+      <widget class="QLabel" name="nk3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="5">
+      <widget class="QLabel" name="n5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_17">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Білки</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLabel" name="b5_3">
        <property name="text">
         <string/>
        </property>
@@ -702,27 +620,41 @@
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
-      <widget class="QLabel" name="label_26">
+     <item row="3" column="5">
+      <widget class="QLabel" name="f5">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="nb1">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_21">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>Норма віглеводів</string>
+        <string>Клітковина</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="name1_3">
+     <item row="9" column="5">
+      <widget class="QLabel" name="nb5">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="4" column="2">
-      <widget class="QLabel" name="c2">
+     <item row="2" column="2">
+      <widget class="QLabel" name="b2_3">
        <property name="text">
         <string/>
        </property>
@@ -735,6 +667,48 @@
        </property>
       </widget>
      </item>
+     <item row="10" column="4">
+      <widget class="QLabel" name="nf4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2">
+      <widget class="QLabel" name="nk2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="QLabel" name="n3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="6">
+      <widget class="QLabel" name="n6">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="6">
+      <widget class="QLabel" name="nc6">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLabel" name="kl4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="4">
       <widget class="QLabel" name="f4">
        <property name="text">
@@ -742,15 +716,48 @@
        </property>
       </widget>
      </item>
-     <item row="7" column="4">
-      <widget class="QLabel" name="h4">
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_19">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Вуглеводи</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="6">
+      <widget class="QLabel" name="f6">
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
-     <item row="5" column="2">
-      <widget class="QLabel" name="n2">
+     <item row="1" column="2">
+      <widget class="QLabel" name="k2">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="6">
+      <widget class="QLabel" name="h6">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="6">
+      <widget class="QLabel" name="kl6">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="name2_3">
        <property name="text">
         <string/>
        </property>

@@ -84,112 +84,118 @@ class Data(QtWidgets.QMainWindow):
 
 
 class Test(QtWidgets.QMainWindow):
-    def __init__(self, dishlist, family, num):
+    def __init__(self, dishlist, family, num, day):
         super(Test, self).__init__()
         # self.setWindowTitle('Optimal food plan')
         # self.setupUi(self)
         uic.loadUi("form6.ui", self)
-        calories = []
-        proteins =[]
-        fats = []
-        carbohydrates = []
-        cholesterol = []
-        cellulose = []
-        sodium = []
-        """
+        calories = np.zeros(num)
+        proteins = np.zeros(num)
+        fat = np.zeros(num)
+        carbohydrates = np.zeros(num)
+        cholesterol = np.zeros(num)
+        cellulose = np.zeros(num)
+        sodium = np.zeros(num)
+        
         for i in range(num):
-            for day in range(7):
-                for j in range(4):
-                    for k in range(len(family[i].WeekDishList[day][j])):
-                        calories[i] += 
-        self.name1_3.setText(self.family[0].name)
-        self.k1.setText() # количество калорий в рационе
-        self.b1_3.setText() # количество белка в рационе
-        self.f1.setText() # количестважира в рационе
-        self.c1.setText() #количество углевода в рационе
-        self.n1.settext()#количество натрия в рационе
-        self.kl1.setText() #количество клетчатки в рационе
-        self.h1.setText() # количество холестерина в рационе
-        self.nk1.settext() #  норма калорий
-        self.nb1.setText() #норма белка
-        self.nf1.setText() #норма жира
-        self.nc1.setText() # норма углевов
-        if self.num > 1:
-            self.name2_3.setText() #self.family[1].name
-            self.k2.setText()  # количество калорий в рационе
-            self.b2_3.setText()  # количество белка в рационе
-            self.f2.setText()  # количестважира в рационе
-            self.c2.setText()  # количество углевода в рационе
-            self.n2.settext()  # количество натрия в рационе
-            self.kl2.setText()  # количество клетчатки в рационе
-            self.h2.setText()  # количество холестерина в рационе
-            self.nk2.settext()  # норма калорий
-            self.nb2.setText()  # норма белка
-            self.nf2.setText()  # норма жира
-            self.nc2.setText()  # норма углевов
-        else:
-            self.name2_3.setText(" ")
-        if self.num > 2:
-            self.name3_3.setText() #self.family[2].name
-            self.k3.setText()  # количество калорий в рационе
-            self.b3_3.setText()  # количество белка в рационе
-            self.f3.setText()  # количестважира в рационе
-            self.c3.setText()  # количество углевода в рационе
-            self.n3.settext()  # количество натрия в рационе
-            self.kl3.setText()  # количество клетчатки в рационе
-            self.h3.setText()  # количество холестерина в рационе
-            self.nk3.settext()  # норма калорий
-            self.nb3.setText()  # норма белка
-            self.nf3.setText()  # норма жира
-            self.nc3.setText()  # норма углевов
-        else:
-            self.name3_3.setText(" ")
-        if self.num > 3:
-            self.name4_3.setText() #self.family[3].name
-            self.k4.setText()  # количество калорий в рационе
-            self.b4_3.setText()  # количество белка в рационе
-            self.f4.setText()  # количестважира в рационе
-            self.c4.setText()  # количество углевода в рационе
-            self.n4.settext()  # количество натрия в рационе
-            self.kl4.setText()  # количество клетчатки в рационе
-            self.h4.setText()  # количество холестерина в рационе
-            self.nk4.settext()  # норма калорий
-            self.nb4.setText()  # норма белка
-            self.nf4.setText()  # норма жира
-            self.nc4.setText()  # норма углевов
-        else:
-            self.name4_3.setText(" ")
-        if self.num > 4:
-            self.name5_3.setText() #self.family[4].name
-            self.k5.setText()  # количество калорий в рационе
-            self.b5_3.setText()  # количество белка в рационе
-            self.f5.setText()  # количестважира в рационе
-            self.c5.setText()  # количество углевода в рационе
-            self.n5.settext()  # количество натрия в рационе
-            self.kl5.setText()  # количество клетчатки в рационе
-            self.h5.setText()  # количество холестерина в рационе
-            self.nk5.settext()  # норма калорий
-            self.nb5.setText()  # норма белка
-            self.nf5.setText()  # норма жира
-            self.nc5.setText()  # норма углевов
-        else:
-            self.name5_3.setText(" ")
-        if self.num > 5:
-            self.name6_3.setText() #self.family[5].name
-            self.k6.setText()  # количество калорий в рационе
-            self.b6_3.setText()  # количество белка в рационе
-            self.f6.setText()  # количестважира в рационе
-            self.c6.setText()  # количество углевода в рационе
-            self.n6.settext()  # количество натрия в рационе
-            self.kl6.setText()  # количество клетчатки в рационе
-            self.h6.setText()  # количество холестерина в рационе
-            self.nk6.settext()  # норма калорий
-            self.nb6.setText()  # норма белка
-            self.nf6.setText()  # норма жира
-            self.nc6.setText()  # норма углевов
-        else:
-            self.name6_3.setText(" ")
-        """
+            for j in range(4):
+                for k in range(len(family[i].WeekDishList[day][j])):
+                    calories[i] += family[i].WeekDishList[day][j][k].calories * family[i].portion[day][j][k]
+                    fat[i] += family[i].WeekDishList[day][j][k].fat * family[i].portion[day][j][k]
+                    proteins[i] += family[i].WeekDishList[day][j][k].proteins * family[i].portion[day][j][k]
+                    carbohydrates[i] += family[i].WeekDishList[day][j][k].carbohydrates * family[i].portion[day][j][k]
+                    cholesterol[i] += family[i].WeekDishList[day][j][k].cholesterol * family[i].portion[day][j][k]
+                    cellulose[i] += family[i].WeekDishList[day][j][k].cellulose * family[i].portion[day][j][k]
+                    sodium[i] += family[i].WeekDishList[day][j][k].sodium * family[i].portion[day][j][k]
+
+        self.name1_3.setText(family[0].name)
+        print(calories[0])
+        self.k1.setText(str(calories[0])) # количество калорий в рационе
+        print(proteins[0])
+        self.b1_3.setText(str(proteins[0])) # количество белка в рационе
+        print(fat[0])
+        self.f1.setText(str(fat[0])) # количестважира в рационе
+        print(carbohydrates[0])
+        self.c1.setText(str(carbohydrates[0])) #количество углевода в рационе
+        print(sodium[0])
+        self.n1.setText(str(sodium[0]))#количество натрия в рационе
+        print(cellulose[0])
+        self.kl1.setText(str(cellulose[0])) #количество клетчатки в рационе
+        print(cholesterol[0])
+        self.h1.setText(str(cholesterol[0])) # количество холестерина в рационе
+        self.nk1.setText(str(family[0].Qmin) + " - " + str(family[0].Qmax)) #  норма калорий
+        self.nb1.setText(str(family[0].proteins_min) + " - " + str(family[0].proteins_max)) #норма белка
+        self.nf1.setText(str(family[0].fat_min) + " - " + str(family[0].fat_max)) #норма жира
+        self.nc1.setText(str(family[0].carbohydrates_min) + " - " + str(family[0].carbohydrates_max)) # норма углевов
+        if num > 1:
+            self.name2_3.setText(family[1].name)
+            self.k2.setText(str(calories[1])) # количество калорий в рационе
+            self.b2_3.setText(str(proteins[1])) # количество белка в рационе
+            self.f2.setText(str(fat[1])) # количестважира в рационе
+            self.c2.setText(str(carbohydrates[1])) #количество углевода в рационе
+            self.n2.setText(str(sodium[1]))#количество натрия в рационе
+            self.kl2.setText(str(cellulose[1])) #количество клетчатки в рационе
+            self.h2.setText(str(cholesterol[1])) # количество холестерина в рационе
+            self.nk2.setText(str(family[1].Qmin) + " - " + str(family[1].Qmax)) #  норма калорий
+            self.nb2.setText(str(family[1].proteins_min) + " - " + str(family[1].proteins_max)) #норма белка
+            self.nf2.setText(str(family[1].fat_min) + " - " + str(family[1].fat_max)) #норма жира
+            self.nc2.setText(str(family[1].carbohydrates_min) + " - " + str(family[1].carbohydrates_max)) # норма углевов 
+        if num > 2:
+            self.name3_3.setText(family[2].name)
+            self.k3.setText(str(calories[2])) # количество калорий в рационе
+            self.b3_3.setText(str(proteins[2])) # количество белка в рационе
+            self.f3.setText(str(fat[2])) # количестважира в рационе
+            self.c3.setText(str(carbohydrates[2])) #количество углевода в рационе
+            self.n3.setText(str(sodium[2]))#количество натрия в рационе
+            self.kl3.setText(str(cellulose[2])) #количество клетчатки в рационе
+            self.h3.setText(str(cholesterol[2])) # количество холестерина в рационе
+            self.nk3.setText(str(family[2].Qmin) + " - " + str(family[2].Qmax)) #  норма калорий
+            self.nb3.setText(str(family[2].proteins_min) + " - " + str(family[2].proteins_max)) #норма белка
+            self.nf3.setText(str(family[2].fat_min) + " - " + str(family[2].fat_max)) #норма жира
+            self.nc3.setText(str(family[2].carbohydrates_min) + " - " + str(family[2].carbohydrates_max)) # норма углевов
+
+        if num > 3:
+            self.name4_3.setText(family[3].name)
+            self.k4.setText(str(calories[3])) # количество калорий в рационе
+            self.b4_3.setText(str(proteins[3])) # количество белка в рационе
+            self.f4.setText(str(fat[3])) # количестважира в рационе
+            self.c4.setText(str(carbohydrates[3])) #количество углевода в рационе
+            self.n4.setText(str(sodium[3]))#количество натрия в рационе
+            self.kl4.setText(str(cellulose[3])) #количество клетчатки в рационе
+            self.h4.setText(str(cholesterol[3])) # количество холестерина в рационе
+            self.nk4.setText(str(family[3].Qmin) + " - " + str(family[3].Qmax)) #  норма калорий
+            self.nb4.setText(str(family[3].proteins_min) + " - " + str(family[3].proteins_max)) #норма белка
+            self.nf4.setText(str(family[3].fat_min) + " - " + str(family[3].fat_max)) #норма жира
+            self.nc4.setText(str(family[3].carbohydrates_min) + " - " + str(family[3].carbohydrates_max)) # норма углевов
+
+        if num > 4:
+            self.name5_3.setText(family[4].name)
+            self.k5.setText(str(calories[4])) # количество калорий в рационе
+            self.b5_3.setText(str(proteins[4])) # количество белка в рационе
+            self.f5.setText(str(fat[4])) # количестважира в рационе
+            self.c5.setText(str(carbohydrates[4])) #количество углевода в рационе
+            self.n5.setText(str(sodium[4]))#количество натрия в рационе
+            self.kl5.setText(str(cellulose[4])) #количество клетчатки в рационе
+            self.h5.setText(str(cholesterol[4])) # количество холестерина в рационе
+            self.nk5.setText(str(family[4].Qmin) + " - " + str(family[4].Qmax)) #  норма калорий
+            self.nb5.setText(str(family[4].proteins_min) + " - " + str(family[4].proteins_max)) #норма белка
+            self.nf5.setText(str(family[4].fat_min) + " - " + str(family[4].fat_max)) #норма жира
+            self.nc5.setText(str(family[4].carbohydrates_min) + " - " + str(family[4].carbohydrates_max)) # норма углевов
+
+        if num > 5:
+            self.name6_3.setText(family[5].name)
+            self.k6.setText(str(calories[5])) # количество калорий в рационе
+            self.b6_3.setText(str(proteins[5])) # количество белка в рационе
+            self.f6.setText(str(fat[5])) # количестважира в рационе
+            self.c6.setText(str(carbohydrates[5])) #количество углевода в рационе
+            self.n6.setText(str(sodium[5]))#количество натрия в рационе
+            self.kl6.setText(str(cellulose[5])) #количество клетчатки в рационе
+            self.h6.setText(str(cholesterol[5])) # количество холестерина в рационе
+            self.nk6.setText(str(family[5].Qmin) + " - " + str(family[5].Qmax)) #  норма калорий
+            self.nb6.setText(str(family[5].proteins_min) + " - " + str(family[5].proteins_max)) #норма белка
+            self.nf6.setText(str(family[5].fat_min) + " - " + str(family[5].fat_max)) #норма жира
+            self.nc6.setText(str(family[5].carbohydrates_min) + " - " + str(family[5].carbohydrates_max)) # норма углевов
+        
         self.pushButton.clicked.connect(self.Back)
         self.show()
 
@@ -245,14 +251,20 @@ class Ui4(QtWidgets.QMainWindow):
 
 
     def Out(self, day):
-        
+        self.day = day
         breakfast = ""
         for i in range(len(self.dishlist[day][0])):
             breakfast += str(i+1) + ") " + self.dishlist[day][0][i].name+"\n"
 
         lunch = ""
-        for i in range(len(self.dishlist[day][1])):
-            lunch += str(i+1) + ") " + self.dishlist[day][1][i].name+"\n"
+        home = False
+        for i in range(self.num):
+            if self.family[i].work[day][1] == False:
+                home = True
+                break
+        if home:
+            for i in range(len(self.dishlist[day][1])):
+                lunch += str(i+1) + ") " + self.dishlist[day][1][i].name+"\n"
 
         dinner = ""
         for i in range(len(self.dishlist[day][2])):
@@ -321,7 +333,7 @@ class Ui4(QtWidgets.QMainWindow):
             self.s6.setText(s[5])
 
     def Shown(self):
-        self.test = Test(self.dishlist, self.family, self.num)
+        self.test = Test(self.dishlist, self.family, self.num, self.day)
         #self.close()
         self.test.show()
     def Shown1(self):

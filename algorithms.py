@@ -79,7 +79,7 @@ class Person:
 						self.WeekDishList[day][2] = db.Dinner(conn)
 		#количество порций соответствующее личному списку блюд
 		x = Portions(self)
-		print(x)
+		#print(x)
 		self.portion = [[[] for _ in range(4)] for _ in range(7)]
 		#print(self.portion)
 		for day in range(7):
@@ -95,7 +95,7 @@ class Person:
 			for i in range(len(self.WeekDishList[day][3])):
 				self.portion[day][3].append(x[day][i + len(self.WeekDishList[day][2])+ len(self.WeekDishList[day][1]) + len(self.WeekDishList[day][0])])
 				#print(self.portion,"\n")
-		print(self.portion)
+		#print(self.portion)
 			
 
 def Portions(person):
@@ -112,7 +112,7 @@ def Portions(person):
 		c = np.ones(size)
 		#масив ограничений
 		#b = np.array([person.Qmax*0.3, person.Qmin*0.3*(-1),person.Qmax*0.35, person.Qmin*0.35*(-1),person.Qmax*0.20, person.Qmin*0.20*(-1),person.Qmax*0.15, person.Qmin*0.15*(-1), person.fat*(-1) , person.proteins*(-1) ,  person.carbohydrates*(-1) ,  person.sugar*(-1) , person.cholesterol *(-1),  person.alcohol ,  person.caffeine ,  person.sodium *(-1),  person.cellulose *(-1),  person.A *(-1),  person.B1*(-1) ,  person.B6 *(-1),  person.B12 *(-1),  person.C *(-1),  person.D *(-1),  person.E *(-1),  person.K *(-1),  person.calcium *(-1),  person.iron *(-1),  person.magnesium*(-1),  person.zinc *(-1)])
-		b = np.array([person.Qmax*0.3*1.2,person.Qmin*0.3*(-1)*0.8,person.Qmax*0.35*1.2, person.Qmin*0.35*(-1)*0.8,person.Qmax*0.20*1.2, person.Qmin*0.20*(-1)*0.8,person.Qmax*0.15*1.2, person.Qmin*0.15*(-1)*0.8, person.fat_min * (-1)*0.8, person.fat_max*1.2, person.proteins_min * (-1)*0.8, person.proteins_max*1.2, person.carbohydrates_min * (-1)*0.8, person.carbohydrates_max*1.2, person.cholesterol, person.sodium,  person.cellulose])
+		b = np.array([person.Qmax*0.3,person.Qmin*0.3*(-1),person.Qmax*0.35, person.Qmin*0.35*(-1),person.Qmax*0.20, person.Qmin*0.20*(-1),person.Qmax*0.15, person.Qmin*0.15*(-1), person.fat_min * (-1)*0.8, person.fat_max*1.2, person.proteins_min * (-1)*0.8, person.proteins_max*1.2, person.carbohydrates_min * (-1)*0.8, person.carbohydrates_max*1.2, person.cholesterol, person.sodium,  person.cellulose])
 		#заполнение масива параметров блюд
 		for i in range(len(person.WeekDishList[day][0])):
 			a[0][i] = person.WeekDishList[day][0][i].calories
