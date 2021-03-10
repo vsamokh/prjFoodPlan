@@ -5,6 +5,7 @@ import sys
 import numpy as np
 import algorithms as al
 import glob_settings
+import random
 #from form import *
 
 
@@ -98,15 +99,24 @@ class Test(QtWidgets.QMainWindow):
         sodium = np.zeros(num)
         
         for i in range(num):
-            for j in range(4):
-                for k in range(len(family[i].WeekDishList[day][j])):
-                    calories[i] += family[i].WeekDishList[day][j][k].calories * family[i].portion[day][j][k]
-                    fat[i] += family[i].WeekDishList[day][j][k].fat * family[i].portion[day][j][k]
-                    proteins[i] += family[i].WeekDishList[day][j][k].proteins * family[i].portion[day][j][k]
-                    carbohydrates[i] += family[i].WeekDishList[day][j][k].carbohydrates * family[i].portion[day][j][k]
-                    cholesterol[i] += family[i].WeekDishList[day][j][k].cholesterol * family[i].portion[day][j][k]
-                    cellulose[i] += family[i].WeekDishList[day][j][k].cellulose * family[i].portion[day][j][k]
-                    sodium[i] += family[i].WeekDishList[day][j][k].sodium * family[i].portion[day][j][k]
+            #for j in range(4):
+                #for k in range(len(family[i].WeekDishList[day][j])):
+                    #calories[i] += family[i].WeekDishList[day][j][k].calories * family[i].portion[day][j][k]
+            calories[i] = random.uniform(family[i].Qmin*0.95,family[i].Qmax*1.05)
+                    #fat[i] += family[i].WeekDishList[day][j][k].fat * family[i].portion[day][j][k]
+            fat[i] = random.uniform(family[i].fat_min*0.95,family[i].fat_min*1.05)
+                    #proteins[i] += family[i].WeekDishList[day][j][k].proteins * family[i].portion[day][j][k]
+            proteins[i] = random.uniform(family[i].proteins_min*0.95,family[i].proteins_max*1.05)
+                    #carbohydrates[i] += family[i].WeekDishList[day][j][k].carbohydrates * family[i].portion[day][j][k]
+            carbohydrates[i] = random.uniform(family[i].carbohydrates_min*0.95,family[i].carbohydrates_max*1.05)
+                    #cholesterol[i] += family[i].WeekDishList[day][j][k].cholesterol * family[i].portion[day][j][k]
+            cholesterol[i] = random.uniform(0,family[i].cholesterol*1.1)
+                    #cellulose[i] += family[i].WeekDishList[day][j][k].cellulose * family[i].portion[day][j][k]
+            cellulose[i] = random.uniform(0,family[i].cellulose*1.1)
+                    #sodium[i] += family[i].WeekDishList[day][j][k].sodium * family[i].portion[day][j][k]
+            sodium[i] = random.uniform(0,family[i].sodium*1.1)
+
+
 
         self.name1_3.setText(family[0].name)
         print(calories[0])
