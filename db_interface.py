@@ -115,24 +115,9 @@ class Dish:
         self.fat = getMealEntryUnknown(conn, "Жиры__г_", meal_id)
         self.proteins = getMealEntryUnknown(conn, "Белки__г_", meal_id)
         self.carbohydrates = getMealEntryUnknown(conn, "Углеводы__г_", meal_id)
-        self.sugar = getMealEntryUnknown(conn, "Сахар_г_", meal_id)
         self.cholesterol = getMealEntryUnknown(conn, "Холестерин__мг_", meal_id)
-        self.alcohol = getMealEntryUnknown(conn, "Алкоголь__г_", meal_id)
-        self.caffeine = getMealEntryUnknown(conn, "Холестерин__мг_", meal_id)
         self.sodium = getMealEntryUnknown(conn, "Натрий__мг_", meal_id)
         self.cellulose = getMealEntryUnknown(conn, "Клетчатка", meal_id)
-        self.A = getMealEntryUnknown(conn, "Витамин_А__IU_", meal_id)
-        self.B1 = getMealEntryUnknown(conn, "Витамин_В1__мг_", meal_id)
-        self.B6 = getMealEntryUnknown(conn, "Витамин_В6__мг_", meal_id)
-        self.B12 = getMealEntryUnknown(conn, "Витамин_В12__IU_", meal_id)
-        self.C = getMealEntryUnknown(conn, "Витамин_С__мг_", meal_id)
-        self.D = getMealEntryUnknown(conn, "Витамин_Д__IU_", meal_id)
-        self.E = getMealEntryUnknown(conn, "Витамин_Е__мг_", meal_id)
-        self.K = getMealEntryUnknown(conn, "Витамин_К__мкг_", meal_id)
-        self.calcium = getMealEntryUnknown(conn, "Кальций__мг_", meal_id)
-        self.iron = getMealEntryUnknown(conn, "Железо__мг_", meal_id)
-        self.magnesium = getMealEntryUnknown(conn, "Магний__мг_", meal_id)
-        self.zinc = getMealEntryUnknown(conn, "Цинк_мг_", meal_id)
 
 
 # Функция, возвращающая список классов Dish для завтрака
@@ -163,13 +148,12 @@ def Snack(conn):
     return [Dish(conn, a), Dish(conn, b)]
 
 
-conn = connect_db("databaseV2.3.db")
-"""
+"""conn = connect_db("databaseV2.3.db")
 glob_settings.glob_init()
 glob_settings.lang = "en"
 glob_settings.allergyid_list.append(1)
 print(randomMealID(conn, "Завтрак"))
 print(glob_settings.lang)
-print(glob_settings.allergyid_list)"""
-
+print(glob_settings.allergyid_list)
 close_db(conn)
+"""
