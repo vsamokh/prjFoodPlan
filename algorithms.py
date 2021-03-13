@@ -7,7 +7,7 @@ from scipy.optimize import linprog
 
 gb.glob_init()
 gb.lang = "uk"
-conn = db.connect_db("databaseV2.3.db")
+conn = db.connect_db("databaseV2.5.db")
 
 
 class Person:
