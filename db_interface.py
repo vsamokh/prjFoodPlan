@@ -52,7 +52,11 @@ def getMealEntryUnknown(conn, table_field, meal_id):
                     UNION
                     SELECT {table_field} FROM 'Салат' where Код_блюда == {meal_id}
                 """)
-    return cur.fetchone()[0]
+    temp = cur.fetchone()[0]
+    if temp == None:
+        return 0
+    else:
+        return temp
 
 
 """
@@ -148,12 +152,8 @@ def Snack(conn):
     return [Dish(conn, a), Dish(conn, b)]
 
 
-"""conn = connect_db("databaseV2.3.db")
+"""conn = connect_db("databaseV2.5.db")
 glob_settings.glob_init()
 glob_settings.lang = "en"
-glob_settings.allergyid_list.append(1)
-print(randomMealID(conn, "Завтрак"))
-print(glob_settings.lang)
-print(glob_settings.allergyid_list)
-close_db(conn)
-"""
+print(getMealEntryUnknown(conn, "Углеводы__г_", 83))
+close_db(conn)"""
