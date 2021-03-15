@@ -258,7 +258,6 @@ res = linprog(c, a, b)
 print(res)
 X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
-"""
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
@@ -269,7 +268,6 @@ test = Person("Testovenko Test Testovich", "Male", 66, 166, 66, 1.6)
 #print(test.Qmin, test.Qmax)
 test.WeekPlan(days, List)
 print(test.portion[1][1][1])
-"""
 for day in range(7):
 	print("\nDay", day+1, ":\n")
 	for i in range(4):
