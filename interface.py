@@ -204,6 +204,18 @@ class Test(QtWidgets.QMainWindow):
         self.close()
 
 
+class Helper2(QtWidgets.QDialog):
+    def __init__(self):
+        super(Helper2, self).__init__()
+        # self.setWindowTitle('Optimal food plan')
+        # self.setupUi(self)
+        uic.loadUi("helper2.ui", self)
+        self.closer.clicked.connect(self.Close)
+
+    def Close(self):
+        self.close()
+
+
 class Ui4(QtWidgets.QMainWindow):
     def __init__(self, dishlist, family, num):
         self.dishlist = dishlist
@@ -223,6 +235,7 @@ class Ui4(QtWidgets.QMainWindow):
         self.sunday.clicked.connect(self.Sunday)
         self.shown.clicked.connect(self.Shown)
         self.shown1.clicked.connect(self.Shown1)
+        self.pushButton.clicked.connect(self.Helper)
         #n=3 #количество членов семьи
         #self.hiden(n)
         print(num)
@@ -249,7 +262,9 @@ class Ui4(QtWidgets.QMainWindow):
             self.name6.setText(" ")
         self.show()
 
-
+    def Helper(self):
+        self.h=Helper2()
+        self.h.show()
 
     def Out(self, day):
         self.day = day
