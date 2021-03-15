@@ -139,13 +139,22 @@ def Portions(person):
 			a[16][i] = dishes[i].cellulose 
 		cal = 0
 		for i in range(len(dishes)):
-			a1 = np.zeros((a.shape[1]))
-			a1[i] = -1
-			a = np.insert(a, 0, a1, axis = 0)
-			b = np.insert(b, 0, -1)
-			a1[i] = 1
-			a = np.insert(a, 0, a1, axis = 0)
-			b = np.insert(b, 0, 20)
+			if i < len(dishes) - len(person.WeekDishList[day][3]):
+				a1 = np.zeros((a.shape[1]))
+				a1[i] = -1
+				a = np.insert(a, 0, a1, axis = 0)
+				b = np.insert(b, 0, -10)
+				a1[i] = 1
+				a = np.insert(a, 0, a1, axis = 0)
+				b = np.insert(b, 0, 100)
+			else:
+				a1 = np.zeros((a.shape[1]))
+				a1[i] = -1
+				a = np.insert(a, 0, a1, axis = 0)
+				b = np.insert(b, 0, -1)
+				a1[i] = 1
+				a = np.insert(a, 0, a1, axis = 0)
+				b = np.insert(b, 0, 10)
 			#print(dishes[i].name)
 			"""
 			a[11][i] = dishes[i].sugar * (-1)
@@ -167,7 +176,7 @@ def Portions(person):
 			"""
 		#вычисление дробного кол-ва блюд, через библеотеку scipy
 		simplex = linprog(c, a, b, method='simplex')
-		#print(a,b)
+		print(a,b)
 		#print("day ", day+1, ":", simplex.success)
 		#получение целочисленного решения
 		res[day] = BnB(a, b, c, simplex.x, simplex.fun, simplex.x)
@@ -249,7 +258,7 @@ res = linprog(c, a, b)
 print(res)
 X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
-
+"""
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
@@ -260,6 +269,7 @@ test = Person("Testovenko Test Testovich", "Male", 66, 166, 66, 1.6)
 #print(test.Qmin, test.Qmax)
 test.WeekPlan(days, List)
 print(test.portion[1][1][1])
+"""
 for day in range(7):
 	print("\nDay", day+1, ":\n")
 	for i in range(4):
