@@ -3,6 +3,7 @@ import scipy
 import math
 import db_interface as db
 import glob_settings as gb
+import random
 from scipy.optimize import linprog
 
 gb.glob_init()
@@ -74,7 +75,10 @@ class Person:
 					if i == 0 :
 						self.WeekDishList[day][0] = db.Breakfast(conn)
 					elif i == 1:
-						self.WeekDishList[day][1] = db.Lunch(conn)
+						#self.WeekDishList[day][1] = db.Lunch(conn)
+						dish = Pseudo_Dish(self)
+						lunch = [dish]
+						self.WeekDishList[day][1] = lunch
 					elif i == 2:
 						self.WeekDishList[day][2] = db.Dinner(conn)
 		#количество порций соответствующее личному списку блюд
@@ -97,6 +101,16 @@ class Person:
 				#print(self.portion,"\n")
 		#print(self.portion)
 			
+class Pseudo_Dish:
+	def __init__(self, person):
+		self.name = "-"
+		self.calories = random.uniform(person.Qmin*0.35,person.Qmax*0.35)
+		self.fat = random.uniform(person.fat_min*0.25,person.fat_max*0.35)
+		self.proteins = random.uniform(person.proteins_min*0.25,person.proteins_max*0.35)
+		self.carbohydrates = random.uniform(person.carbohydrates_min*0.25,person.carbohydrates_max*0.35)
+		self.cholesterol = 0
+		self.sodium = 0
+		self.cellulose = 0
 
 def Portions(person):
 	"""
@@ -258,16 +272,20 @@ res = linprog(c, a, b)
 print(res)
 X = BnB(a, b, c, res.x, res.fun, res.x)
 print(X)
+
+
 List = [[[]]]*7
 for day in range(7):
 		List[day] = [db.Breakfast(conn), db.Lunch(conn), db.Dinner(conn), db.Snack(conn)]
 
 days = np.zeros((7,3))
-
+days[0][1] = 1
 test = Person("Testovenko Test Testovich", "Male", 66, 166, 66, 1.6)
 #print(test.Qmin, test.Qmax)
 test.WeekPlan(days, List)
 print(test.portion[1][1][1])
+
+
 for day in range(7):
 	print("\nDay", day+1, ":\n")
 	for i in range(4):
