@@ -117,19 +117,19 @@ class Test(QtWidgets.QMainWindow):
             sodium[i] = round(sodium[i],3)
 
         self.name1_3.setText(family[0].name)
-        print(calories[0])
+        #print(calories[0])
         self.k1.setText(str(calories[0])) # количество калорий в рационе
-        print(proteins[0])
+        #print(proteins[0])
         self.b1_3.setText(str(proteins[0])) # количество белка в рационе
-        print(fat[0])
+        #print(fat[0])
         self.f1.setText(str(fat[0])) # количестважира в рационе
-        print(carbohydrates[0])
+        #print(carbohydrates[0])
         self.c1.setText(str(carbohydrates[0])) #количество углевода в рационе
-        print(sodium[0])
+        #print(sodium[0])
         self.n1.setText(str(sodium[0]))#количество натрия в рационе
-        print(cellulose[0])
+        #print(cellulose[0])
         self.kl1.setText(str(cellulose[0])) #количество клетчатки в рационе
-        print(cholesterol[0])
+        #print(cholesterol[0])
         self.h1.setText(str(cholesterol[0])) # количество холестерина в рационе
         self.nk1.setText(str(family[0].Qmin) + " - " + str(family[0].Qmax)) #  норма калорий
         self.nb1.setText(str(family[0].proteins_min) + " - " + str(family[0].proteins_max)) #норма белка

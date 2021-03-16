@@ -190,7 +190,7 @@ def Portions(person):
 			"""
 		#вычисление дробного кол-ва блюд, через библеотеку scipy
 		simplex = linprog(c, a, b, method='simplex')
-		print(a,b)
+		#print(a,b)
 		#print("day ", day+1, ":", simplex.success)
 		#получение целочисленного решения
 		res[day] = BnB(a, b, c, simplex.x, simplex.fun, simplex.x)
