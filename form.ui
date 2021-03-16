@@ -145,7 +145,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>C:/Users/Катерина/OneDrive/Рабочий стол/проект1().png</pixmap>
+     <pixmap>проект1().png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -161,7 +161,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>C:/Users/Катерина/OneDrive/Рабочий стол/проект2.png</pixmap>
+     <pixmap>проект2.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="begin_button">
