@@ -108,6 +108,13 @@ class Test(QtWidgets.QMainWindow):
                     cholesterol[i] += family[i].WeekDishList[day][j][k].cholesterol * family[i].portion[day][j][k]
                     cellulose[i] += family[i].WeekDishList[day][j][k].cellulose * family[i].portion[day][j][k]
                     sodium[i] += family[i].WeekDishList[day][j][k].sodium * family[i].portion[day][j][k]
+            calories[i] = round(calories[i],3)
+            fat[i] = round(fat[i],3)
+            proteins[i] = round(proteins[i],3)
+            carbohydrates[i] = round(carbohydrates[i],3)
+            cholesterol[i] = round(cholesterol[i],3)
+            cellulose[i] = round(cellulose[i],3)
+            sodium[i] = round(sodium[i],3)
 
         self.name1_3.setText(family[0].name)
         print(calories[0])
