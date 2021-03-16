@@ -4,6 +4,7 @@ import math
 import db_interface as db
 import glob_settings as gb
 import random
+import copy
 from scipy.optimize import linprog
 
 gb.glob_init()
@@ -67,7 +68,7 @@ class Person:
 		Инициализация графика работы, коректировка плана питания на неделю и расчет порций
 		"""
 		self.work = work
-		self.WeekDishList = List 
+		self.WeekDishList = copy.deepcopy(List) 
 		#проходим по графику работы, если человек не дома, меняем блюда на эту часть дня
 		for day in range(7):
 			for i in range(3):
