@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1076</width>
-    <height>549</height>
+    <width>1354</width>
+    <height>563</height>
    </rect>
   </property>
   <property name="palette">
@@ -101,8 +101,13 @@
     </disabled>
    </palette>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Optimal food plan</string>
+   <string>Nutrition plan</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -110,9 +115,14 @@
      <rect>
       <x>480</x>
       <y>10</y>
-      <width>583</width>
+      <width>841</width>
       <height>401</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <layout class="QHBoxLayout" name="all">
      <item>
@@ -130,16 +140,40 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="b1"/>
+        <widget class="QTextBrowser" name="b1">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="l1"/>
+        <widget class="QTextBrowser" name="l1">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="d1"/>
+        <widget class="QTextBrowser" name="d1">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="s1"/>
+        <widget class="QTextBrowser" name="s1">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -158,16 +192,40 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="b2"/>
+        <widget class="QTextBrowser" name="b2">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="l2"/>
+        <widget class="QTextBrowser" name="l2">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="d2"/>
+        <widget class="QTextBrowser" name="d2">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="s2"/>
+        <widget class="QTextBrowser" name="s2">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -186,16 +244,40 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="b3"/>
+        <widget class="QTextBrowser" name="b3">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="l3"/>
+        <widget class="QTextBrowser" name="l3">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="d3"/>
+        <widget class="QTextBrowser" name="d3">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="s3"/>
+        <widget class="QTextBrowser" name="s3">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -214,16 +296,40 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="b4"/>
+        <widget class="QTextBrowser" name="b4">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="l4"/>
+        <widget class="QTextBrowser" name="l4">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="d4"/>
+        <widget class="QTextBrowser" name="d4">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="s4"/>
+        <widget class="QTextBrowser" name="s4">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -242,16 +348,40 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="b5"/>
+        <widget class="QTextBrowser" name="b5">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="l5"/>
+        <widget class="QTextBrowser" name="l5">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="d5"/>
+        <widget class="QTextBrowser" name="d5">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="s5"/>
+        <widget class="QTextBrowser" name="s5">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -270,16 +400,40 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="b6"/>
+        <widget class="QTextBrowser" name="b6">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="l6"/>
+        <widget class="QTextBrowser" name="l6">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="d6"/>
+        <widget class="QTextBrowser" name="d6">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="s6"/>
+        <widget class="QTextBrowser" name="s6">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -288,9 +442,9 @@
    <widget class="QPushButton" name="shown">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>770</x>
       <y>430</y>
-      <width>451</width>
+      <width>541</width>
       <height>51</height>
      </rect>
     </property>
@@ -328,6 +482,11 @@ font-family: 'Roboto Slab', senif;</string>
       <height>402</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
     <layout class="QVBoxLayout" name="dishes">
      <item>
       <widget class="QLabel" name="label_6">
@@ -342,16 +501,40 @@ font-family: 'Roboto Slab', senif;</string>
       </widget>
      </item>
      <item>
-      <widget class="QTextBrowser" name="breakfast"/>
+      <widget class="QTextBrowser" name="breakfast">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QTextBrowser" name="lunch"/>
+      <widget class="QTextBrowser" name="lunch">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QTextBrowser" name="dinner"/>
+      <widget class="QTextBrowser" name="dinner">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QTextBrowser" name="snacs"/>
+      <widget class="QTextBrowser" name="snacs">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -650,9 +833,9 @@ font-family: 'Roboto Slab', senif;</string>
    <widget class="QPushButton" name="shown1">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>60</x>
       <y>430</y>
-      <width>451</width>
+      <width>541</width>
       <height>51</height>
      </rect>
     </property>
@@ -681,14 +864,48 @@ font-family: 'Roboto Slab', senif;</string>
      <string>Показати дані користувача</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>430</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Roboto Slab</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">float:right;
+margin-right: 3%;
+margin top: 5px;
+border-radius:15px;
+-moz-border-radius:5px;
+webkit-border-radius:5px;
+padding:5px 9px;
+font-size: 1.2em;
+background-color:rgba(85, 184, 65,1);
+text-shadow: #454545 0 0 2px;
+border-bottom: 4px solid rgba(98, 193, 71, 1);
+color:black;
+font-family: 'Roboto Slab', senif;</string>
+    </property>
+    <property name="text">
+     <string>?</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1076</width>
-     <height>26</height>
+     <width>1354</width>
+     <height>34</height>
     </rect>
    </property>
   </widget>

@@ -108,21 +108,28 @@ class Test(QtWidgets.QMainWindow):
                     cholesterol[i] += family[i].WeekDishList[day][j][k].cholesterol * family[i].portion[day][j][k]
                     cellulose[i] += family[i].WeekDishList[day][j][k].cellulose * family[i].portion[day][j][k]
                     sodium[i] += family[i].WeekDishList[day][j][k].sodium * family[i].portion[day][j][k]
+            calories[i] = round(calories[i],3)
+            fat[i] = round(fat[i],3)
+            proteins[i] = round(proteins[i],3)
+            carbohydrates[i] = round(carbohydrates[i],3)
+            cholesterol[i] = round(cholesterol[i],3)
+            cellulose[i] = round(cellulose[i],3)
+            sodium[i] = round(sodium[i],3)
 
         self.name1_3.setText(family[0].name)
-        print(calories[0])
+        #print(calories[0])
         self.k1.setText(str(calories[0])) # количество калорий в рационе
-        print(proteins[0])
+        #print(proteins[0])
         self.b1_3.setText(str(proteins[0])) # количество белка в рационе
-        print(fat[0])
+        #print(fat[0])
         self.f1.setText(str(fat[0])) # количестважира в рационе
-        print(carbohydrates[0])
+        #print(carbohydrates[0])
         self.c1.setText(str(carbohydrates[0])) #количество углевода в рационе
-        print(sodium[0])
+        #print(sodium[0])
         self.n1.setText(str(sodium[0]))#количество натрия в рационе
-        print(cellulose[0])
+        #print(cellulose[0])
         self.kl1.setText(str(cellulose[0])) #количество клетчатки в рационе
-        print(cholesterol[0])
+        #print(cholesterol[0])
         self.h1.setText(str(cholesterol[0])) # количество холестерина в рационе
         self.nk1.setText(str(family[0].Qmin) + " - " + str(family[0].Qmax)) #  норма калорий
         self.nb1.setText(str(family[0].proteins_min) + " - " + str(family[0].proteins_max)) #норма белка
@@ -204,6 +211,18 @@ class Test(QtWidgets.QMainWindow):
         self.close()
 
 
+class Helper2(QtWidgets.QDialog):
+    def __init__(self):
+        super(Helper2, self).__init__()
+        # self.setWindowTitle('Optimal food plan')
+        # self.setupUi(self)
+        uic.loadUi("helper2.ui", self)
+        self.closer.clicked.connect(self.Close)
+
+    def Close(self):
+        self.close()
+
+
 class Ui4(QtWidgets.QMainWindow):
     def __init__(self, dishlist, family, num):
         self.dishlist = dishlist
@@ -223,6 +242,7 @@ class Ui4(QtWidgets.QMainWindow):
         self.sunday.clicked.connect(self.Sunday)
         self.shown.clicked.connect(self.Shown)
         self.shown1.clicked.connect(self.Shown1)
+        self.pushButton.clicked.connect(self.Helper)
         #n=3 #количество членов семьи
         #self.hiden(n)
         print(num)
@@ -249,7 +269,9 @@ class Ui4(QtWidgets.QMainWindow):
             self.name6.setText(" ")
         self.show()
 
-
+    def Helper(self):
+        self.h=Helper2()
+        self.h.show()
 
     def Out(self, day):
         self.day = day
